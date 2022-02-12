@@ -6,95 +6,151 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import MenuList from "../basic/menuList"
 import Image from "../basic/image"
+import Card from "../basic/card"
+import Button from "../basic/button"
 
 const SSection = styled.section`
   ${ tw`
-    z-10 top-0 left-0 right-0 w-full bg-white min-h-[80px] border-t-0 border-b-4 border-l-0 border-r-0 border-second-500 border-solid
+    w-full bg-white min-h-[80px] border-t-0 border-b-4 border-l-0 border-r-0 border-main-500 border-solid
   ` }
 
   div.nav-container{
     ${ tw`
-      flex flex-col w-10/12 max-w-[960px]  mx-auto 
-      md:items-center md:justify-between md:flex-row
+      
     ` }
 
-    .nav-logo {
+    .nav-section-1 {
       ${ tw`
-        py-4 flex flex-row items-center justify-between
-      ` }
-
-      a {
+        grid grid-rows-1 grid-cols-[0.5fr 3fr 1fr] w-[960px] m-auto h-[120px]
+      `}
+      .nav-logo {
         ${ tw`
-          text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg 
+          py-4 w-[fit-content] grid my-auto
         ` }
-
-        .img-container {
+  
+        a {
           ${ tw`
-            w-[58px]
-            md:w-[80px]
+            text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg 
           ` }
+  
+          .img-container {
+            ${ tw`
+              w-[58px]
+              md:w-[80px]
+            ` }
+          }
+        }
+  
+        div.nav-button {
+          button.small-device {
+            background-image: url('/image/menu_icon.svg');
+    
+            ${ tw`
+              bg-white bg-contain bg-no-repeat w-10 h-10 border-0 cursor-pointer
+              md:hidden
+              focus:outline-none
+          ` }
+          }
         }
       }
+  
+      div.nav-info {
+        ${ tw`
+          grid grid-rows-1 grid-cols-2
+        `}
+      }
 
-      button.small-device {
-          background-image: url('/image/menu_icon.svg');
-
-          ${ tw`
-            bg-white bg-contain bg-no-repeat w-10 h-10 border-0 cursor-pointer
-            md:hidden
-            focus:outline-none
-        ` }
+      div.nav-contact-us {
+        ${ tw`
+          grid items-center uppercase justify-end
+        `}
       }
     }
 
-    nav {
+    .nav-section-2 {
       ${ tw`
-        max-mdd:h-0 transition ease-in-out transition-all
-      ` }
+        bg-main-500 grid m-auto 
+      `}
 
-      a {
+      .menu-container {
         ${ tw`
-          max-mdd:hidden transition ease-in-out transition-all
-        ` }
-      }
-
-      &.menu.is-visible {
-        ${ tw`
-          max-mdd:h-[calc(100vh - 84px)]
-        ` }
-
-        a {
+          w-[960px] m-auto grid grid-rows-1 grid-cols-[1fr 150px] h-[70px]
+        `}
+        nav {
           ${ tw`
-            max-mdd:block
+            transition ease-in-out transition-all
           ` }
+    
+          a {
+            ${ tw`
+              max-mdd:hidden transition ease-in-out transition-all text-white grid m-auto
+            ` }
+          }
+    
+          &.menu.is-visible {
+            ${ tw`
+              max-mdd:h-[calc(100vh - 84px)]
+            ` }
+    
+            a {
+              ${ tw`
+                max-mdd:block
+              ` }
+            }
+          }
+        }
+
+        .winbooks-button {
+          ${ tw`
+            grid m-auto uppercase
+          `}
         }
       }
-    } 
+    }
   }
 `;
 
 const Header = () => {
-  const  { strapiNavigation: { logo, menu } }  = useStaticQuery(
+  const  { strapiNavigation: { logo, info, menu, contact_us, winbooks_link } }  = useStaticQuery(
     graphql`
       query {
         strapiNavigation {
           logo {
             image {
-              id
-              name
               alternativeText
-              caption
-              width
-              height
               url
-              size
+              name
             }
+          }
+          info {
+            image {
+              alternativeText
+              url
+              name
+            }
+            text
           }
           menu {
             page {
-              title
               slug
+              title
             }
+          }
+          winbooks_link {
+            color
+            color_hover
+            external_page
+            text
+            text_color
+            text_color_hover
+          }
+          contact_us {
+            color
+            color_hover
+            id
+            text
+            text_color
+            text_color_hover
           }
         }
       }  
@@ -106,13 +162,34 @@ const Header = () => {
   return (
     <SSection className="main-nav" >
       <div className="nav-container">
-        <div  className="nav-logo">
-          <Link to='/'>
-            { logo.image ? <Image image={ logo.image } /> : logo.text }
-          </Link>
-          <button className="small-device" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) } />
+        <div className="nav-section-1">
+          <div className="nav-logo">
+            <Link to='/'>
+              { logo.image ? <Image image={ logo.image } /> : logo.text }
+            </Link>
+            <div className="nav-button">
+              <button className="small-device" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) } />
+            </div>
+          </div>
+          <div className="nav-info">
+            { info.map(card => (
+              <Card key={ card.text } data={ card } className="header-info"/>
+            ))}
+          </div>
+          <div className="nav-contact-us">
+              {console.log(contact_us)}
+            <Button button={ contact_us } />
+          </div>
         </div>
-        <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />
+        <div className="nav-section-2">
+          <div className="menu-container">
+            <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />
+            <div className="winbooks-button">
+              <Button button={ winbooks_link }/>
+              {console.log(winbooks_link)}
+            </div>
+          </div>
+        </div>
       </div>
     </SSection>
   )

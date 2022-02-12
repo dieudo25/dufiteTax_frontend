@@ -5,10 +5,23 @@ import Image from "./image";
 import RichText from "./richText";
 
 const SCard = styled.div`
+    ${ ({ className }) => (className.includes("header-info")) && tw`
+        grid
+        md:grid-rows-1 md:grid-cols-[20px 1fr] md:max-w-[300px] md:m-auto md:gap-4 md:items-center
+    ` }
+
     .img-container {
+        ${ ({ className }) => (className.includes("header-info")) && tw`
+                w-[20px] h-[20px] 
+        ` }
+
         img {
             ${ tw`
                 object-contain
+            ` }
+
+            ${ ({ className }) => (className.includes("header-info")) && tw`
+                w-full h-full
             ` }
         }
     }

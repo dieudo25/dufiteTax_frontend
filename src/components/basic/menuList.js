@@ -4,8 +4,11 @@ import { Link } from "gatsby"
 
 const SMenuList = styled.nav`
     ${ tw`
-        grid content-center text-center transition ease-in-out transition-all gap-10
-        md:flex 
+        grid transition ease-in-out transition-all gap-10
+    ` }
+
+    ${ ({ className }) => (className.includes("header-nav")) && tw`
+        justify-start
     ` }
 
     a {

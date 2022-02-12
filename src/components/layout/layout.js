@@ -25,7 +25,7 @@ const SPageContainer = styled.div`
     ` }
 
     ${ ({ className }) => (className === "page-accueil" && tw`
-      fixed
+      
     `) }
 
     nav {
