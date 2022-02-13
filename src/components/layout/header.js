@@ -11,7 +11,7 @@ import Button from "../basic/button"
 
 const SSection = styled.section`
   ${ tw`
-    w-full bg-white min-h-[80px] border-t-0 border-b-4 border-l-0 border-r-0 border-main-500 border-solid
+    w-full bg-white
   ` }
 
   div.nav-container{

@@ -18,10 +18,6 @@ const SSection = styled.section`
             md:col-span-2 max-w-[555px] 
         ` }
 
-        ${ ({ className }) => className.includes('service-section') && tw`
-            my-0
-        ` }
-
         ${ ({ first_element }) => first_element === 'text'
             ?
             tw`

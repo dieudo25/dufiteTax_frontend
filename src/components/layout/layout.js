@@ -42,59 +42,9 @@ const SPageContainer = styled.div`
     scroll-padding: 50px;
     
     ${ tw`
-      row-start-2 grid gap-[50px] overflow-x-hidden
+      grid gap-[50px] overflow-x-hidden
       md:gap-[100px] 
     ` }
-
-    ${ ({ className }) => (className === "page-a-propos" && tw`
-      lg:gap-[150px]
-    `) }
-
-    ${ ({ className }) => className === "page-accueil" && tw`
-      /* max-h-screen overflow-y-scroll */
-    ` }
-
-    > section, footer {
-
-      ${ tw`
-        
-      ` }
-
-      &:not(:first-of-type) {
-        ${ tw`
-          max-w-[960px]
-        ` }
-      }
-    }
-
-    section {
-      &.home-section {
-        ${ tw`
-          relative
-        ` }
-      }
-
-      &.service-section {
-        &.service-how {
-          ${ tw`
-            
-          ` }
-
-          img {
-            ${ tw`
-              object-contain
-            ` }
-          }
-        }
-      }
-
-    }
-
-    #footer {
-      ${ tw`
-        
-      ` }
-    }
   }
 `
 

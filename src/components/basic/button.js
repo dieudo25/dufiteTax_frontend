@@ -13,6 +13,7 @@ const SButton = styled(Link)`
         ?
         `
             background-color: ${ color };
+            border: 2px solid ${ color };
             &:hover {
                 background-color: ${ color_hover };
                 border: 2px solid ${ color }
