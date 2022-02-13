@@ -1,16 +1,15 @@
-import * as React from "react"
+import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Image from "../basic/image"
-import RichText from "../basic/richText" 
 import MenuList from "../basic/menuList"
-import Card from "../basic/card"
+import ImageLink from "../flex/sections/ImageLink"
 
 const SFooter = styled.footer`
     ${ tw`
-        border-solid border-t-4 border-l-0 border-r-0 border-b-0 border-second-500 mt-[50px]
+        border-solid border-t-4 border-l-0 border-r-0 border-b-0 border-main-500 mt-[50px]
         md:mt-[100px]
     ` }
 
@@ -39,67 +38,31 @@ const SFooter = styled.footer`
                         ` }
                     }
                 }
-                
-                .rich-text {
-                    ${ tw`
-                        text-center
-                        lg:text-left
-                    ` }
-                }
-
-                &.logo-2 {
-                    .img-container {
-                        ${ tw`
-                            w-[140px] mx-auto
-                            lg:mx-0
-                        ` }
-                    }
-                }
             }
         }
 
         .menu {
             ${ tw`
                 flex-col justify-center
-                lg:justify-start lg:gap-[50px]
+                lg:gap-[50px]
             ` }
 
         }
 
-        .footer-cards {
+        .footer-socials {
             ${ tw`
-                grid gap-5
-            ` }
+                grid grid-rows-1 grid-cols-[20px 20px 20px] gap-5 justify-end
+            `}
 
-            .card-container {
+            .img-container {
                 ${ tw`
-                    grid mx-auto justify-center h-fit-content gap-4
-                    lg:grid-cols-[57px 1fr] lg:gap-[10px] lg:min-w-[293.34px]
-                ` }
+                    w-[20px] h-[20px]
+                `}
 
-                .img-container {
+                img {
                     ${ tw`
-                        w-[48px] h-[48px] m-auto
-                    ` }
-                }
-
-                .rich-text {
-                    ${ tw`
-                        flex items-center
+                        object-contain
                     `}
-
-                    p {
-                        ${ tw`
-                            text-center break-words m-0
-                            lg:text-left
-                        ` }
-
-                        a {
-                            ${ ({ color })  => color &&
-                                `color: ${ color };`  
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -107,7 +70,7 @@ const SFooter = styled.footer`
 
     .footer-copyright {
         ${ tw`
-            m-auto bg-second-500 text-white grid m-auto
+            m-auto bg-main-500 text-white grid m-auto
         ` }
 
         p {
@@ -119,18 +82,12 @@ const SFooter = styled.footer`
 `
 
 const Footer = () => {
-    const  { strapiFooter: { logo, logo_2, menu, text, text_2, card, copyright } }  = useStaticQuery(
+    const  { strapiFooter: { logo, menu, copyright, socials } }  = useStaticQuery(
         graphql`
             query {
                 strapiFooter {
                     id
                     logo {
-                        image {
-                        url
-                        alternativeText
-                        }
-                    }
-                    logo_2 {
                         image {
                         url
                         alternativeText
@@ -142,18 +99,13 @@ const Footer = () => {
                         title
                         }
                     }
-                    text
-                    text_2
                     copyright
-                    card {
-                        id
-                        color
+                    socials {
+                        external_page
                         image {
-                            id
-                            url
-                            alternativeText
+                          alternativeText
+                          url
                         }
-                        text
                     }
                 }
             }
@@ -161,23 +113,20 @@ const Footer = () => {
     )
 
     return (
-        <SFooter id="footer" className="snap-start">
+        <SFooter id="footer">
             <div className="footer-container">
                 <div className="logo-container">
                     <div className="footer-logo logo-1">
                         <Link to='/'>
                             { logo.image ? <Image image={ logo.image } /> : logo.text }
                         </Link>
-                        <RichText text={ text } />
-                    </div>
-                    <div className="footer-logo logo-2">
-                        { logo_2.image ? <Image image={ logo_2.image } /> : logo_2.text }
-                        <RichText text={ text_2 } />
                     </div>
                 </div>
                 <MenuList menu={ menu } isMenuActive={ true } className="footer-nav" />
-                <div className="footer-cards">
-                    { card.map((item) => <Card key={item.id} data={ item } className="footer-card-item"/>) }
+                <div className="footer-socials">
+                    { socials.map(social => (
+                        <ImageLink data={ social } />
+                    ))}
                 </div>
             </div>
             <div className="footer-copyright"><p>{ copyright }</p></div>

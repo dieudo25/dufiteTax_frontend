@@ -17,9 +17,13 @@ const SMenuList = styled.nav`
             hover:text-second-500 hover:transition ease-in-out
         ` }
 
+        ${ ({ className }) => (className.includes("footer-nav")) && tw`
+            text-dark-500
+        ` }
+
         &[aria-current="page"] {
             ${ tw`
-                text-second-500
+                text-main-500
             ` }
         }
     }
