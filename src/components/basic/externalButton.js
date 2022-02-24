@@ -1,11 +1,11 @@
 import React from "react";
 import tw, { styled } from "twin.macro"
 import { Link } from "gatsby"
+import { FaUser } from 'react-icons/fa';
 
-const SButton = styled(Link)`
+const SExternalButton = styled(Link)`
     ${ tw`
-        inline-grid text-center font-bold no-underline uppercase transition ease-in-out duration-500
-        p-3
+        flex items-center font-bold no-underline uppercase transition ease-in-out duration-500 p-3 gap-2
         hover:transition ease-in-out
     `}
 
@@ -44,9 +44,15 @@ const SButton = styled(Link)`
         :
         tw`text-black hover:text-gray-400`
     }
+
+    svg {
+        ${ tw`
+            text-[20px]
+        ` }
+    }
 `
 
-const Button = ({ button: { text, bg_color, bg_color_hover, border_color, border_color_hover, text_color, text_color_hover, page }, dataSal, dataSalDuration}) => (
+const ExternalButton = ({ button: { text, bg_color, bg_color_hover, border_color, border_color_hover, text_color, text_color_hover, link }, dataSal, dataSalDuration, icon}) => (
     <div 
         className="btn-container"
         data-sal={dataSal}
@@ -54,8 +60,8 @@ const Button = ({ button: { text, bg_color, bg_color_hover, border_color, border
     >
         {console.log(text)}
         {
-            <SButton
-                to={ page && page.slug !== 'accueil' ? `/${page.slug}` : '/' } 
+            <SExternalButton
+                href={ link } 
                 className="btn"
                 bg_color={ bg_color }
                 border_color_hover={ border_color_hover }
@@ -65,8 +71,9 @@ const Button = ({ button: { text, bg_color, bg_color_hover, border_color, border
                 text_color_hover={ text_color_hover }
             >
                 { text }
-            </SButton>
+                { icon && icon === "FaUser" && <FaUser /> }
+            </SExternalButton>
         }
     </div>
 )
-export default Button;
+export default ExternalButton;

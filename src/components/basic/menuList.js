@@ -8,17 +8,13 @@ const SMenuList = styled.nav`
     ` }
 
     ${ ({ className }) => (className.includes("header-nav")) && tw`
-        justify-start
+        
     ` }
 
     a {
         ${ tw`
-            w-fit-content mx-auto uppercase font-semibold no-underline text-dark-500 transition ease-in-out cursor-pointer
+            uppercase font-semibold no-underline text-black transition ease-in-out cursor-pointer
             hover:text-second-500 hover:transition ease-in-out
-        ` }
-
-        ${ ({ className }) => (className.includes("footer-nav")) && tw`
-            text-dark-500
         ` }
 
         &[aria-current="page"] {

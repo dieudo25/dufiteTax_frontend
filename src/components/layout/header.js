@@ -1,156 +1,151 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
 import { useStaticQuery, graphql } from "gatsby"
+import { MdPhone, MdLocationOn } from "react-icons/md"
 
 import MenuList from "../basic/menuList"
 import Image from "../basic/image"
-import Card from "../basic/card"
 import Button from "../basic/button"
+import ExternalButton from "../basic/externalButton"
+import RichText from "../basic/richText"
 
 const SSection = styled.section`
-  ${ tw`
-    w-full bg-white
-  ` }
-
-  div.nav-container{
+  .top-nav-container {
     ${ tw`
-      
+      w-10/12 m-auto
+      md:flex md:justify-between md:items-center
+      xl:w-[960px]
     ` }
-
-    .nav-section-1 {
-      ${ tw`
-        grid grid-rows-1 grid-cols-[0.5fr 3fr 1fr] w-[960px] m-auto h-[120px]
-      `}
-      .nav-logo {
+    .nav-logo {
+      .img-container {
         ${ tw`
-          py-4 w-[fit-content] grid my-auto
+          w-[200px] m-auto
         ` }
-  
-        a {
-          ${ tw`
-            text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg 
-          ` }
-  
-          .img-container {
-            ${ tw`
-              w-[58px]
-              md:w-[80px]
-            ` }
-          }
-        }
-  
-        div.nav-button {
-          button.small-device {
-            background-image: url('/image/menu_icon.svg');
-    
-            ${ tw`
-              bg-white bg-contain bg-no-repeat w-10 h-10 border-0 cursor-pointer
-              md:hidden
-              focus:outline-none
-          ` }
-          }
-        }
-      }
-  
-      div.nav-info {
-        ${ tw`
-          grid grid-rows-1 grid-cols-2
-        `}
-      }
-
-      div.nav-contact-us {
-        ${ tw`
-          grid items-center uppercase justify-end
-        `}
       }
     }
-
-    .nav-section-2 {
-      ${ tw`
-        bg-main-500 grid m-auto 
-      `}
-
-      .menu-container {
-        ${ tw`
-          w-[960px] m-auto grid grid-rows-1 grid-cols-[1fr 150px] h-[70px]
-        `}
-        nav {
+    .nav-heading {
+      .rich-text {
+        h1 {
           ${ tw`
-            transition ease-in-out transition-all
+            m-0 text-center font-light
+            md:text-[21px]
+            lg:text-[21px]
+            xl:text-[2rem]
           ` }
-    
-          a {
+          strong {
             ${ tw`
-              max-mdd:hidden transition ease-in-out transition-all text-white grid m-auto
+              text-main-500
             ` }
           }
-    
-          &.menu.is-visible {
-            ${ tw`
-              max-mdd:h-[calc(100vh - 84px)]
-            ` }
-    
-            a {
-              ${ tw`
-                max-mdd:block
-              ` }
-            }
-          }
-        }
-
-        .winbooks-button {
-          ${ tw`
-            grid m-auto uppercase
-          `}
         }
       }
+    }
+  }
+
+  .middle-nav-container {
+    ${ tw`
+    bg-main-500
+    ` }
+    .block-container {
+      ${ tw`
+        w-10/12 m-auto grid justify-center gap-10 mt-[50px] py-10
+        md:grid-cols-[1fr 1fr] md:justify-between md:mt-0
+        lg:grid-cols-[241px 241px 195px]
+        xl:w-[960px] 
+      ` }
+      .info-card {
+        ${ tw`
+          flex items-center m-auto w-[241px] gap-5
+        ` }
+        .icon-container {
+          ${ tw`
+            w-[58px] h-[58px]
+          ` }
+          svg {
+            ${ tw`
+              p-3 text-white text-[32px] border border-solid border-white rounded-full
+            ` }
+          }
+        }
+        span, a {
+          ${tw`
+            text-white no-underline
+          ` }
+        }
+      }
+
+      .btn-container {
+        ${ tw`
+          text-center 
+          md:col-span-2
+          lg:col-span-1
+        ` }
+      }
+    }
+  }
+
+  .bottom-nav-container {
+    ${ tw`
+      grid justify-center py-10 gap-10 w-10/12 mx-auto
+      lg:grid-cols-[1fr 172px] items-center lg:mx-auto lg:py-5
+      xl:w-[960px]
+    ` }
+    .header-nav {
+      ${ tw`
+        grid justify-center gap-5
+        lg:justify-start
+    ` }
+    }
+    .btn-container {
+
     }
   }
 `;
 
 const Header = () => {
-  const  { strapiNavigation: { logo, info, menu, contact_us, winbooks_link } }  = useStaticQuery(
+  const  { strapiNavigation: { logo, phone, location, menu, contact_us, customer_zone } }  = useStaticQuery(
     graphql`
       query {
         strapiNavigation {
+          contact_us {
+            border_color
+            border_color_hover
+            bg_color
+            bg_color_hover
+            text
+            text_color
+            text_color_hover
+          }
+          customer_zone {
+            bg_color
+            bg_color_hover
+            border_color
+            border_color_hover
+            link
+            text
+            text_color
+            text_color_hover
+          }
+          location
           logo {
             image {
               alternativeText
-              url
+              caption
+              height
               name
-            }
-          }
-          info {
-            image {
-              alternativeText
               url
-              name
+              width
+              size
             }
             text
           }
+          phone
           menu {
             page {
               slug
               title
             }
-          }
-          winbooks_link {
-            color
-            color_hover
-            external_page
-            text
-            text_color
-            text_color_hover
-          }
-          contact_us {
-            color
-            color_hover
-            id
-            text
-            text_color
-            text_color_hover
           }
         }
       }  
@@ -161,43 +156,39 @@ const Header = () => {
 
   return (
     <SSection className="main-nav" >
-      <div className="nav-container">
-        <div className="nav-section-1">
-          <div className="nav-logo">
-            <Link to='/'>
-              { logo.image ? <Image image={ logo.image } /> : logo.text }
-            </Link>
-            <div className="nav-button">
-              <button className="small-device" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) } />
-            </div>
-          </div>
-          <div className="nav-info">
-            { info.map(card => (
-              <Card key={ card.text } data={ card } className="header-info"/>
-            ))}
-          </div>
-          <div className="nav-contact-us">
-              {console.log(contact_us)}
-            <Button button={ contact_us } />
-          </div>
+      <div className="top-nav-container">
+        <div className="nav-logo">
+          <Link to='/'>
+            { logo.image ? <Image image={ logo.image } /> : logo.text }
+          </Link>
         </div>
-        <div className="nav-section-2">
-          <div className="menu-container">
-            <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />
-            <div className="winbooks-button">
-              <Button button={ winbooks_link }/>
-              {console.log(winbooks_link)}
-            </div>
-          </div>
+        <div className="nav-heading">
+          <RichText text={ logo.text }/>
         </div>
+      </div>
+      <div className="middle-nav-container">
+        <div className="block-container">
+          <div className="info-card">
+            <div className="icon-container">
+              <MdPhone />
+            </div>
+            <span><a href={`tel:${ phone }`}>{ phone }</a></span>
+          </div>
+          <div className="info-card">
+            <div className="icon-container">
+              <MdLocationOn />
+            </div>
+            <span>{ location }</span>
+          </div>
+          <Button button={ contact_us } />
+        </div>
+      </div>
+      <div className="bottom-nav-container">
+        <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />
+        <ExternalButton button={ customer_zone } icon="FaUser"/>
       </div>
     </SSection>
   )
-}
-
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
 }
 
 export default Header;
