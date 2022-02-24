@@ -2,10 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 import tw, { styled } from "twin.macro"
 import { useStaticQuery, graphql } from "gatsby"
+import { FaFacebookF, FaTwitter, FaInstagramSquare, FaLinkedinIn } from "react-icons/fa"
 
 import Image from "../basic/image"
 import MenuList from "../basic/menuList"
-import ImageLink from "../flex/sections/ImageLink"
+import RichText from "../basic/richText"
 
 const SFooter = styled.footer`
     ${ tw`
@@ -13,28 +14,38 @@ const SFooter = styled.footer`
         md:mt-[100px]
     ` }
 
-    .footer-container {
+    .top-footer-container {
         ${ tw`
-            mx-auto my-10 w-10/12 max-w-[960px] grid gap-10 justify-center
-            lg:grid-cols-3
-            xl:grid-cols-3
+            mx-auto my-10 w-10/12 max-w-[960px] grid gap-10 justify-center justify-items-center
+            lg:grid-cols-[340px 1fr 340px]
 
         ` }
 
         .logo-container {
             ${ tw`
-                grid gap-10
+                grid gap-5
             ` }
             .footer-logo {
                 ${ tw`
                     xl:w-[340px]
                 ` }
-    
                 a {
                     .img-container {
                         ${ tw`
-                            w-[80px] m-auto
+                            w-[200px] m-auto
                             lg:m-0
+                        ` }
+                    }
+                }
+            }
+            .rich-text {
+                p {
+                    ${ tw`
+                        font-light
+                    ` }
+                    strong {
+                        ${ tw`
+                            text-main-500
                         ` }
                     }
                 }
@@ -51,62 +62,59 @@ const SFooter = styled.footer`
 
         .footer-socials {
             ${ tw`
-                grid grid-rows-1 grid-cols-[20px 20px 20px] gap-5 justify-end
+                grid grid-rows-1 grid-cols-4 gap-10 justify-end justify-self-end
             `}
 
-            .img-container {
+            svg {
                 ${ tw`
-                    w-[20px] h-[20px]
+                    text-[32px] text-main-500
                 `}
-
-                img {
-                    ${ tw`
-                        object-contain
-                    `}
-                }
             }
         }
     }
-
-    .footer-copyright {
-        ${ tw`
-            m-auto bg-main-500 text-white grid m-auto
-        ` }
-
-        p {
+    
+    .bottom-footer-container {
+        .footer-copyright {
             ${ tw`
-                text-center
+                m-auto bg-main-500 text-white grid m-auto
             ` }
+
+            p {
+                ${ tw`
+                    text-center
+                ` }
+            }
         }
     }
+    
 `
 
 const Footer = () => {
-    const  { strapiFooter: { logo, menu, copyright, socials } }  = useStaticQuery(
+    const  { strapiFooter: { logo, menu, copyright, facebook, twitter, instagram, linkedin } }  = useStaticQuery(
         graphql`
             query {
                 strapiFooter {
-                    id
-                    logo {
-                        image {
-                        url
-                        alternativeText
-                        }
-                    }
+                    copyright
                     menu {
                         page {
-                        slug
-                        title
+                            title
+                            slug
                         }
                     }
-                    copyright
-                    socials {
-                        external_page
+                    logo {
                         image {
-                          alternativeText
-                          url
+                            created_at
+                            url
+                            width
+                            height
+                            alternativeText
                         }
+                        text
                     }
+                    facebook
+                    twitter
+                    instagram
+                    linkedin
                 }
             }
         `
@@ -114,22 +122,28 @@ const Footer = () => {
 
     return (
         <SFooter id="footer">
-            <div className="footer-container">
+            <div className="top-footer-container">
                 <div className="logo-container">
-                    <div className="footer-logo logo-1">
-                        <Link to='/'>
-                            { logo.image ? <Image image={ logo.image } /> : logo.text }
+                    <div className="footer-logo">
+                        <Link to="/">
+                            { logo.image && <Image image={ logo.image } /> }
                         </Link>
                     </div>
+                    <RichText text={ logo.text }/>
                 </div>
                 <MenuList menu={ menu } isMenuActive={ true } className="footer-nav" />
                 <div className="footer-socials">
-                    { socials.map(social => (
-                        <ImageLink data={ social } />
-                    ))}
+                    { facebook && <FaFacebookF /> }
+                    { twitter && <FaTwitter /> }
+                    { instagram && <FaInstagramSquare /> }
+                    { linkedin && <FaLinkedinIn /> }
                 </div>
             </div>
-            <div className="footer-copyright"><p>{ copyright }</p></div>
+            <div className="bottom-footer-container">
+                <div className="footer-copyright">
+                    <p>{ copyright }</p>
+                </div>
+            </div>
         </SFooter>
     )
 }

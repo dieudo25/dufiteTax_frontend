@@ -24,20 +24,18 @@ const SSection = styled.section`
         ` }
       }
     }
-    .nav-heading {
-      .rich-text {
-        h1 {
+    .rich-text {
+      h1 {
+        ${ tw`
+          m-0 text-center font-light
+          md:text-[21px]
+          lg:text-[21px]
+          xl:text-[2rem]
+        ` }
+        strong {
           ${ tw`
-            m-0 text-center font-light
-            md:text-[21px]
-            lg:text-[21px]
-            xl:text-[2rem]
+            text-main-500
           ` }
-          strong {
-            ${ tw`
-              text-main-500
-            ` }
-          }
         }
       }
     }
@@ -50,7 +48,7 @@ const SSection = styled.section`
     .block-container {
       ${ tw`
         w-10/12 m-auto grid justify-center gap-10 mt-[50px] py-10
-        md:grid-cols-[1fr 1fr] md:justify-between md:mt-0
+        md:grid-cols-[241px 241px] md:justify-between md:mt-0
         lg:grid-cols-[241px 241px 195px]
         xl:w-[960px] 
       ` }
@@ -162,9 +160,7 @@ const Header = () => {
             { logo.image ? <Image image={ logo.image } /> : logo.text }
           </Link>
         </div>
-        <div className="nav-heading">
-          <RichText text={ logo.text }/>
-        </div>
+        <RichText text={ logo.text }/>
       </div>
       <div className="middle-nav-container">
         <div className="block-container">
