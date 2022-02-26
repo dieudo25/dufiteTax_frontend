@@ -6,17 +6,28 @@ import RichText from "../../basic/richText";
 const SSection = styled.section`
     ${ tw`
         mx-auto my-0 w-10/12
+        xl:w-[960px]
     ` }
 
     .rich-text {
-        h2 {
-            ${ ({ className }) => className.includes('p-services') && tw`
-                mt-0 mx-auto text-left
+        ${ ({ className }) => className.includes('home-services-text') && tw`
+            text-center
+        ` }
+
+        h3, h4, h5, em, strong {
+            ${ tw`
+                not-italic
             ` }
 
             ${ ({ color }) => color && `
                 color: ${ color.normal };
             ` }
+
+            &:hover {
+                ${ ({ color }) => color && `
+                    color: ${ color.hover };
+                ` } 
+            }
         }
     }
    

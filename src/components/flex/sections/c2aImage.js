@@ -6,18 +6,85 @@ import RichText from "../../basic/richText";
 import Image from "../../basic/image";
 import Anchor from "../../basic/anchor";
 
+// Switch that determine wich item is bigger depending on the first elemnt
+const C2AbiggerItemsFirstElImage = (bigger_items) => {
+    switch(bigger_items) {
+        case 'text':
+            return tw`
+                lg:col-start-2 lg:col-span-2
+            `
+        case 'image':
+            return tw`
+                lg:col-start-3 lg:col-span-1
+            `
+        default:
+            return tw`lg:col-start-2 lg:col-span-1`
+    }
+}
+
+const C2AbiggerItemsFirstElText = (bigger_items) => {
+    switch(bigger_items) {
+        case 'text':
+            return tw`
+                lg:col-start-1 lg:col-span-2
+            `
+        case 'image':
+            return tw`
+                lg:col-start-1 lg:col-span-1
+            `
+        default:
+            return tw`lg:col-start-1 lg:col-span-1`
+    }
+}
+
+const ImgbiggerItemsFirstElImage = (bigger_items) => {
+    switch(bigger_items) {
+        case 'text':
+            return tw`
+                lg:col-start-1 lg:col-span-1
+            `
+        case 'image':
+            return tw`
+                lg:col-start-1 lg:col-span-2
+            `
+        default:
+            return tw`lg:col-start-1 lg:col-span-1`
+    }
+}
+
+const ImgbiggerItemsFirstElText = (bigger_items) => {
+    switch(bigger_items) {
+        case 'text':
+            return tw`
+                lg:col-start-3 lg:col-span-1
+            `
+        case 'image':
+            return tw`
+                lg:col-start-2 lg:col-span-2
+            `
+        default:
+            return tw`lg:col-start-2 lg:col-span-1`
+    }
+}
+
 const SSection = styled.section`
     ${ tw` 
         mx-auto w-10/12  grid grid-rows-2 items-center gap-8 
         sm:grid-cols-2 sm:grid-rows-1 
-        lg:grid-cols-3
     ` }
+
+    ${ ({ bigger_items }) => bigger_items === 'none'
+        ?
+        tw`lg:grid-cols-2`
+        :
+        tw`lg:grid-cols-3`
+    }
 
     ${ ({ section_width }) => section_width === 'full' 
         ? 
         tw`w-full` 
         :  
-        tw`w-[960px]` 
+        tw`xl:w-[960px]` 
     }
 
     div.c2a {
@@ -35,9 +102,16 @@ const SSection = styled.section`
             tw`
                 sm:col-start-2 sm:text-right
                 lg:col-start-3
-            ` 
-            
+            `  
         }
+
+        ${ ({ first_element, bigger_items }) => first_element === 'text' 
+            && bigger_items
+            ? 
+            C2AbiggerItemsFirstElText(bigger_items)
+            :  
+            C2AbiggerItemsFirstElImage(bigger_items)
+        } 
 
         div.rich-text {
             ${tw`
@@ -49,7 +123,7 @@ const SSection = styled.section`
                 sm:mb-10
             ` }
 
-            em {
+            strong, em {
                 ${tw`                    
                     text-main-500  not-italic
                 `}
@@ -86,16 +160,20 @@ const SSection = styled.section`
         ${ tw`
             row-span-1 w-full h-[200px] 
             sm:row-start-1
-            lg:col-span-2 
             lg:h-[455px]
         ` }
 
-        ${ ({ first_element }) => first_element === 'image' 
+        ${ ({ first_element, bigger_items }) => first_element === 'text' 
+            && bigger_items
             ? 
-            tw`sm:col-start-1` 
+            ImgbiggerItemsFirstElText(bigger_items)
             :  
-            tw`sm:col-start-2` 
-        }
+            ImgbiggerItemsFirstElImage(bigger_items)
+        } 
+
+        ${ ({ className }) => (className.includes("home-about-cta") && tw`
+            h-[400px]
+        `)}
 
         img { 
             ${ tw`
@@ -106,13 +184,28 @@ const SSection = styled.section`
     }
 `
 
-const C2AImage = ({ data: { strapi_component, text, button, image, style, first_element, animation, anchor_down, anchor_up, section_width } }) => (
+const C2AImage = ({ 
+    data: { 
+        strapi_component,
+        text,
+        button,
+        image,
+        style,
+        first_element,
+        animation,
+        anchor_down,
+        anchor_up,
+        section_width,
+        bigger_items 
+    }
+}) => (
     <SSection
         id={ style && style.css_id }
         className={ `component ${strapi_component} ${style && style.css_classes }` }
         first_element={ first_element }
         button={ button }
         section_width={ section_width }
+        bigger_items={ bigger_items }
     >   
 
         { anchor_up && 
@@ -132,10 +225,10 @@ const C2AImage = ({ data: { strapi_component, text, button, image, style, first_
             dataSal={ animation && animation.type.replaceAll('_', '-') }
             dataSalDuration="800"
             image={ image.formats > 0 && image.formats !== null
-                ? 
-                image.formats.small || image.formats.medium
-                :
-                image
+            ? 
+            image.formats.small || image.formats.medium
+            :
+            image
             }
         />
 
