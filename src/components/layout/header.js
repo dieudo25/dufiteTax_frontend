@@ -48,13 +48,13 @@ const SSection = styled.section`
     .block-container {
       ${ tw`
         w-10/12 m-auto grid justify-center gap-10 mt-[50px] py-10
-        md:grid-cols-[241px 241px] md:justify-between md:mt-0
-        lg:grid-cols-[241px 241px 195px]
+        md:grid-cols-[226px 226px 1fr] md:justify-between md:mt-0
+        lg:grid-cols-[226px 226px 195px]
         xl:w-[960px] 
       ` }
       .info-card {
         ${ tw`
-          flex items-center m-auto w-[241px] gap-5
+          flex items-center m-auto w-[226px] gap-5
         ` }
         .icon-container {
           ${ tw`
@@ -76,8 +76,6 @@ const SSection = styled.section`
       .btn-container {
         ${ tw`
           text-center 
-          md:col-span-2
-          lg:col-span-1
         ` }
       }
     }

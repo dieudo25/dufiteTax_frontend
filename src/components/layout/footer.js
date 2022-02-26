@@ -10,13 +10,12 @@ import RichText from "../basic/richText"
 
 const SFooter = styled.footer`
     ${ tw`
-        border-solid border-t-4 border-l-0 border-r-0 border-b-0 border-main-500 mt-[50px]
-        md:mt-[100px]
+        border-solid border-t-4 border-l-0 border-r-0 border-b-0 border-main-500
     ` }
 
     .top-footer-container {
         ${ tw`
-            mx-auto my-10 w-10/12 max-w-[960px] grid gap-10 justify-center justify-items-center
+            mx-auto my-10 w-10/12 max-w-[960px] grid gap-10 justify-center justify-items-center items-center
             lg:grid-cols-[340px 1fr 340px]
 
         ` }
@@ -62,7 +61,8 @@ const SFooter = styled.footer`
 
         .footer-socials {
             ${ tw`
-                grid grid-rows-1 grid-cols-4 gap-10 justify-end justify-self-end
+                grid grid-rows-1 grid-cols-4 gap-10 justify-end 
+                lg:justify-self-end
             `}
 
             svg {
@@ -90,7 +90,17 @@ const SFooter = styled.footer`
 `
 
 const Footer = () => {
-    const  { strapiFooter: { logo, menu, copyright, facebook, twitter, instagram, linkedin } }  = useStaticQuery(
+    const  { 
+        strapiFooter: { 
+            logo, 
+            menu, 
+            copyright, 
+            facebook, 
+            twitter, 
+            instagram, 
+            linkedin 
+        } 
+    }  = useStaticQuery(
         graphql`
             query {
                 strapiFooter {
@@ -133,10 +143,26 @@ const Footer = () => {
                 </div>
                 <MenuList menu={ menu } isMenuActive={ true } className="footer-nav" />
                 <div className="footer-socials">
-                    { facebook && <FaFacebookF /> }
-                    { twitter && <FaTwitter /> }
-                    { instagram && <FaInstagramSquare /> }
-                    { linkedin && <FaLinkedinIn /> }
+                    { facebook && 
+                        <a href={facebook} target="_blank" rel="noreferrer">
+                            <FaFacebookF />
+                        </a> 
+                    }
+                    { twitter && 
+                        <a href={twitter} target="_blank" rel="noreferrer">
+                            <FaTwitter />
+                        </a> 
+                    }
+                    { instagram && 
+                        <a href={instagram} target="_blank" rel="noreferrer">
+                            <FaInstagramSquare />
+                        </a> 
+                    }
+                    { linkedin && 
+                        <a href={linkedin} target="_blank" rel="noreferrer">
+                            <FaLinkedinIn />
+                        </a> 
+                    }
                 </div>
             </div>
             <div className="bottom-footer-container">

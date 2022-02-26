@@ -52,7 +52,6 @@ const Button = ({ button: { text, bg_color, bg_color_hover, border_color, border
         data-sal={dataSal}
         data-sal-duration={dataSalDuration}
     >
-        {console.log(text)}
         {
             <SButton
                 to={ page && page.slug !== 'accueil' ? `/${page.slug}` : '/' } 

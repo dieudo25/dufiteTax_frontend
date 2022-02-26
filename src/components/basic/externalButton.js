@@ -1,9 +1,8 @@
 import React from "react";
 import tw, { styled } from "twin.macro"
-import { Link } from "gatsby"
 import { FaUser } from 'react-icons/fa';
 
-const SExternalButton = styled(Link)`
+const SExternalButton = styled.a`
     ${ tw`
         flex items-center font-bold no-underline uppercase transition ease-in-out duration-500 p-3 gap-2
         hover:transition ease-in-out
@@ -58,10 +57,10 @@ const ExternalButton = ({ button: { text, bg_color, bg_color_hover, border_color
         data-sal={dataSal}
         data-sal-duration={dataSalDuration}
     >
-        {console.log(text)}
         {
             <SExternalButton
                 href={ link } 
+                target="_blank"
                 className="btn"
                 bg_color={ bg_color }
                 border_color_hover={ border_color_hover }
