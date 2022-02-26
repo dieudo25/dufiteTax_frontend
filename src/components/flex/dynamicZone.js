@@ -9,6 +9,7 @@ import Grid from './sections/grid';
 import Paragraph from './sections/paragraph';
 import RichText2Image from './sections/richText2Image';
 import SliderImageCta from './sections/sliderImageCta';
+import BgImageText from './sections/bgImageText';
 
 const DynamicZone = ({ sections }) => (
     <>
@@ -33,6 +34,8 @@ const DynamicZone = ({ sections }) => (
               return <RichText2Image key={ `${component.strapi_component}_${component.id}` } data={component}/>
             case 'page.slider-image-cta':
               return <SliderImageCta key={ `${component.strapi_component}_${component.id}` } data={component}/>
+            case 'page.bg-image-text':
+              return <BgImageText key={ `${component.strapi_component}_${component.id}` } data={component}/>
             default:
               return <h2 key={Math.random()}>Default case - component not found</h2>
           }
