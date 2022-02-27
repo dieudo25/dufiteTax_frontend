@@ -1,6 +1,5 @@
 import React from "react";
 import tw, { styled } from "twin.macro"
-import { Link } from "gatsby";
 import Slider  from "react-slick";
 
 import "../../../style/slick.css";
