@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './layout/layout';
+import Layout from './layout/layout/layout';
 import DynamicZone from './flex/dynamicZone';
 
 const Page = ({ slug, content }) => (

@@ -1,15 +1,15 @@
 import React from 'react';
 
-import HeroImage from './sections/heroImage';
-import C2AImage from './sections/c2aImage';
-import RichTextButton from './sections/richTextButton';
-import SliderCard from './../flex/sections/sliderCard';
-import Header from './sections/header';
-import Grid from './sections/grid';
-import Paragraph from './sections/paragraph';
-import RichText2Image from './sections/richText2Image';
-import SliderImageCta from './sections/sliderImageCta';
-import BgImageText from './sections/bgImageText';
+import HeroImage from './sections/heroImage/heroImage';
+import C2AImage from './sections/c2aImage/c2aImage';
+import RichTextButton from './sections/richTextButton/richTextButton';
+import SliderCard from './sections/slider/card/sliderCard';
+import Header from './sections/header/header';
+import Grid from './sections/grid/grid';
+import Paragraph from './sections/paragraph/paragraph';
+import RichText2Image from './sections/richText2Image/richText2Image';
+import SliderImageCta from './sections/slider/ImageCta/sliderImageCta';
+import BgImageText from './sections/bgImageText/bgImageText';
 
 const DynamicZone = ({ sections }) => (
     <>
