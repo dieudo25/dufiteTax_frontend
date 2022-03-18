@@ -8,7 +8,7 @@ ${ tw`
 ` }
 
 .rich-text {
-    ${ ({ className }) => className.includes('home-services-text') && tw`
+    ${ ({ className }) => className.includes('service-text') && tw`
         text-center
     ` }
 

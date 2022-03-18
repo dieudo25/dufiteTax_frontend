@@ -53,6 +53,7 @@ ${ ({ text_color }) => text_color &&
 div.section-container {
     ${ tw`
         mx-auto grid grid-cols-1 grid-rows-2 items-center justify-center py-[50px]
+        md:py-[calc(100px - 1.50rem)]
         xl:w-[960px]
     
     ` }

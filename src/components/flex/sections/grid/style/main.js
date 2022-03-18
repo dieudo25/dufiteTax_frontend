@@ -1,10 +1,6 @@
 import tw, { styled } from "twin.macro"
 
 const SSection = styled.section`
-    ${ ({ className }) => className.includes('about-values-grid') && tw`
-        mb-[0!important]           
-    ` }
-
     /* Section width */
     ${ ({ section }) => section.is_full_width
         ?
@@ -37,6 +33,11 @@ const SSection = styled.section`
             }
         ` 
     }
+
+    /* Classname - PAGE ABOUT - ABOUT-VALUES-GRID */
+    ${ ({ className }) => className.includes('about-values-grid') && tw`
+        mb-[0!important]           
+    ` }
 
     .section-container {
         ${ tw`
@@ -75,6 +76,11 @@ const SSection = styled.section`
                 }
             ` 
         }
+
+        /* Classname - PAGE ABOUT - ABOUT-VALUES-GRID */
+        ${ ({ className }) => className.includes('about-values-grid') && tw`
+            border-solid border-white border-0 border-b-2               
+        ` }
         
         .cards-grid {
             ${ tw`

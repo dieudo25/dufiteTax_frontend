@@ -62,6 +62,7 @@ const ImgbiggerItemsFirstElText = (bigger_items) => {
     }
 }
 
+// Style
 const SSection = styled.section`
     /* Section width */
     ${ ({ section }) => section.is_full_width
@@ -164,8 +165,8 @@ const SSection = styled.section`
             tw`lg:grid-cols-3`
         } 
 
-        /* Section ClassName - HOME-PAGE - HOME-SERVICE-CTA */
-        ${ ({ className }) => (className.includes("home-service-cta") && tw`
+        /* Section ClassName - HOME-PAGE - SERVICE-CTA-ITEM */
+        ${ ({ className }) => (className.includes("service-cta-item") && tw`
             gap-0
             sm:gap-8
         `)}
