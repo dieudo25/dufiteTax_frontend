@@ -4,6 +4,7 @@ const SCard = styled.div`
     ${ tw`
         
     ` }
+
     /* BG COLOR */
     ${ ({ bg_color }) => bg_color
         ?
@@ -35,17 +36,7 @@ const SCard = styled.div`
         tw`text-black`
     }
 
-    /* className -  home-slider-services-item */
-    ${ ({ className }) => className.includes('home-slider-services-item') && tw`
-        border-t-0 border-r-0 border-l-0
-    ` }
-
     .img-container {
-
-        ${ ({ className }) => className.includes('about-values') && tw`
-            w-[fit-content] h-[64px]  
-        ` }
-        
         img {
             ${ tw`
                 object-contain
@@ -55,11 +46,28 @@ const SCard = styled.div`
 
     .rich-text {
         p {
+            ${ tw`
+                text-white
+            ` }
             a {
                 ${ tw`
                     no-underline
                 ` }
             }
+        }
+    }
+
+    &:where(.home-slider-services-item) {
+        ${ tw`
+            border-t-0 border-r-0 border-l-0
+        ` }
+    }
+
+    &:where(.about-values) {
+        .img-container {
+            ${ tw`
+                w-[fit-content] h-[64px]  
+            ` }
         }
     }
 `
