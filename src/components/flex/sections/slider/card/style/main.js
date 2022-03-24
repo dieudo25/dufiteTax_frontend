@@ -67,25 +67,6 @@ div.cards-slider {
                         lg2:w-[225px]
                     ` }
 
-                    &:hover {
-
-                        &:after {
-                            content: '';
-                            background-image: url('/image/add_circle_outline_white.svg');
-    
-                            ${ tw`
-                                block bg-no-repeat bg-contain w-[45px] h-[45px] absolute top-[calc(50% - calc(45px / 2))] left-[calc(50% - calc(45px / 2))] z-0 transition
-                            ` }
-                        }
-
-                        img {
-                            ${ tw`
-                                opacity-40 transition
-                            ` }
-                        }
-
-                    }
-
                     img {
                         ${ tw`
                             w-full h-full object-cover z-10 transition

@@ -4,7 +4,7 @@ const SCard = styled.div`
     ${ tw`
         
     ` }
-
+    /* BG COLOR */
     ${ ({ bg_color }) => bg_color
         ?
         `
@@ -15,6 +15,7 @@ const SCard = styled.div`
         tw`bg-white hover:bg-gray-400`
     }
 
+    /* BORDER COLOR */
     ${ ({ border_color }) => border_color
         ?
         `
@@ -24,6 +25,7 @@ const SCard = styled.div`
         tw`bg-black hover:bg-gray-400`
     }
 
+    /* TEXT COLOR */
     ${ ({ text_color }) => text_color
         ?
         `
@@ -32,6 +34,11 @@ const SCard = styled.div`
         :
         tw`text-black`
     }
+
+    /* className -  home-slider-services-item */
+    ${ ({ className }) => className.includes('home-slider-services-item') && tw`
+        border-t-0 border-r-0 border-l-0
+    ` }
 
     .img-container {
 
@@ -55,18 +62,6 @@ const SCard = styled.div`
             }
         }
     }
-
-    &:hover {
-        .img-container {
-            
-        }
-
-        .rich-text {
-            p {
-                
-            }
-        }
-    }   
 `
 
 export default SCard;
