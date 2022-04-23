@@ -103,13 +103,6 @@ const SSection = styled.section`
             }
         ` 
     }  
-
-    /* Section ClassName */
-    ${ ({ className }) => (className.includes("about-us-cta") && tw`
-        object-contain mt-[-50px]
-        sm:mt-[-100px]
-        lg:object-contain
-    `)}
     
     div.section-container {
         ${ tw` 
@@ -150,13 +143,6 @@ const SSection = styled.section`
             ` 
         }
 
-        /* Container margin */
-        ${ ({ section }) => section.bg_color != null &&
-            tw`
-                
-            `
-        }
-
         /* C2A Bigger items */
         ${ ({ bigger_items }) => bigger_items === 'none'
             ?
@@ -164,18 +150,6 @@ const SSection = styled.section`
             :
             tw`lg:grid-cols-3`
         } 
-
-        /* Section ClassName - HOME-PAGE - SERVICE-CTA-ITEM */
-        ${ ({ className }) => (className.includes("service-cta-item") && tw`
-            gap-0
-            sm:gap-8
-        `)}
-
-        /* Section ClassName - ABOUT PAGE - ABOUT-US-CTA  */
-        ${ ({ className }) => (className.includes("about-us-cta") && tw`
-            gap-0
-            sm:gap-9
-        `)}
         
         div.c2a {
             ${ tw`
@@ -202,17 +176,8 @@ const SSection = styled.section`
                 :  
                 C2AbiggerItemsFirstElImage(bigger_items)
             }
-            
-            /* Section ClassName - ABOUT PAGE - ABOUT-US-CTA  */
-            ${ ({ className }) => (className.includes("about-us-cta") && tw`
-                mt-[50px]
-                sm:mt-0 sm:my-[100px] 
-            `)}
     
             div.rich-text {
-                ${tw`
-                    
-                `}
     
                 ${ ({ button }) => button && tw`
                     mb-5
@@ -287,6 +252,27 @@ const SSection = styled.section`
                     w-full h-full object-cover
                     lg:object-cover
                 ` }
+            }
+        }
+    }
+
+    &:where(.about-profile) {
+        div.section-container {
+            div.c2a {
+                div.rich-text {
+                    ${ tw`
+                        italic
+                    ` }
+                }
+            }
+
+            div.img-container.c2a-img {
+                ${tw`
+                    h-[230px]
+                    sm:h-[230px]
+                    lg:h-[250px]
+                    xl:h-[280px]
+                `} 
 
                 /* ClassName - ABOUT PAGE - ABOUT-US-CTA  */
                 ${ ({ className }) => (className.includes("about-us-cta") && tw`
@@ -301,6 +287,39 @@ const SSection = styled.section`
             }
         }
     }
+
+    &:where(.about-us-cta) {
+        ${tw`
+            object-contain mt-[-50px]
+            sm:mt-[-100px]
+            lg:object-contain
+        `}
+
+        div.section-container {
+
+            ${tw`
+                gap-0
+                sm:gap-8
+            `}
+
+            div.c2a {
+
+                ${tw`
+                    mt-[50px]
+                    sm:mt-0 sm:my-[100px] 
+                `}
+            }
+
+            div.img-container.c2a-img {
+                img {
+                    ${ tw`
+                        object-contain
+                        lg:object-contain
+                    `}
+                }
+            }
+        }
+    } 
 `
 
 
