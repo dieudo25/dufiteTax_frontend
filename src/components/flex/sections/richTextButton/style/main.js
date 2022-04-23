@@ -41,6 +41,7 @@ ${ ({ section }) => section.borer_color != null &&
     ` 
 }  
 
+/* TEXT COLOR */
 ${ ({ text_color }) => text_color &&
     `   
         color: ${ text_color.normal };
@@ -50,10 +51,16 @@ ${ ({ text_color }) => text_color &&
     `        
 }
 
+
+/* CLASSNAME - PAGE HOME - home-service-text-btn */
+${ ({ className }) => (className.includes("home-service-text-btn")) && tw`
+        mb-[25px!important]
+        md:mb-[50px!important]
+` }
+
 div.section-container {
     ${ tw`
-        mx-auto grid grid-cols-1 grid-rows-2 items-center justify-center py-[50px]
-        md:py-[calc(100px - 1.50rem)]
+        mx-auto grid grid-cols-1 grid-rows-2 items-center justify-center 
         xl:w-[960px]
     
     ` }
@@ -91,12 +98,11 @@ div.section-container {
         ` 
     }
 
-    /* Container margin */
-    ${ ({ section }) => section.bg_color != null &&
-        tw`
-           
-        `
-    }
+    /* CLASSNAME - ALL PAGES - PRICING */
+    ${ ({ className }) => (className.includes("home-pricing")) && tw`
+        py-[50px]
+        md:py-[calc(100px - 1.50rem)]
+    ` }
 
     div.rich-text {
         ${ tw`
@@ -104,7 +110,8 @@ div.section-container {
             text-center max-w-[555px] 
         ` }
 
-        /* ${ ({ first_element }) => first_element === 'text'
+        /*  FIRST ELEMENT */
+        ${ ({ first_element }) => first_element === 'text'
             ?
             tw`
                 md:col-start-1 md:row-start-1 
@@ -113,9 +120,10 @@ div.section-container {
             tw`
                 md:col-start-2 md:row-start-1
             `
-        } */
+        }
 
         p {
+            /* CLASSNAME - PAGE ALL - PRICING */
             ${ ({ className }) => (className.includes("home-pricing")) && tw`
                 text-[20px]
             ` }
