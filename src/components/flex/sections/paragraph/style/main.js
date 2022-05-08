@@ -7,8 +7,16 @@ ${ tw`
     xl:w-[960px]
 ` }
 
+${ ({ className }) => className.includes('contact-header') && tw`
+    my-0
+` }
+
 .rich-text {
     ${ ({ className }) => className.includes('service-text') && tw`
+        text-center
+    ` }
+
+    ${ ({ className }) => className.includes('contact-header') && tw`
         text-center
     ` }
 

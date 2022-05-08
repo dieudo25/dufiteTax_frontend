@@ -55,7 +55,7 @@ const SFooter = styled.footer`
 
         .footer-socials {
             ${ tw`
-                grid grid-rows-1 grid-cols-4 gap-10 justify-end 
+                grid grid-rows-1 grid-cols-2 gap-5 justify-end 
                 lg:justify-self-end
             `}
 
