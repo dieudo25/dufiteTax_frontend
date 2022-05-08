@@ -7,7 +7,7 @@ import Button from "../../../basic/button/button";
 
 import SSection from "./style/main"
 
-const Grid = ( { 
+const Grid = ({ 
     data: { 
         strapi_component, 
         text, 

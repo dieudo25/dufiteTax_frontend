@@ -229,6 +229,14 @@ const SSection = styled.section`
                 sm:row-start-1
                 lg:h-[455px]
             ` }
+
+            /* ClassName - ABOUT PAGE - ABOUT PROFILE */
+            ${ ({ className }) => (className.includes("about-profile") && tw`
+                h-[230px]
+                sm:h-[230px]
+                lg:h-[250px]
+                xl:h-[280px]
+            `) }
             
             /* FIRST ELEMENT & BIGGER ELEMENT */
             ${ ({ first_element, bigger_items }) => first_element === 'text' 
@@ -266,11 +274,16 @@ const SSection = styled.section`
                     xl:h-[280px]
                 `} 
 
-                img {
-                    ${tw`
-                        object-[0 30%]
-                    `}
-                }
+                /* ClassName - ABOUT PAGE - ABOUT-US-CTA  */
+                ${ ({ className }) => (className.includes("about-us-cta") && tw`
+                    object-contain
+                    lg:object-contain
+                `)}
+
+                /* ClassName - ABOUT PAGE - ABOUT-PROFILE  */
+                ${ ({ className }) => (className.includes("about-profile") && tw`
+                    object-[0 30%]
+                `) }
             }
         }
     }

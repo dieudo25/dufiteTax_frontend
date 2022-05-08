@@ -12,7 +12,7 @@ ${ ({ className }) => (className.includes("header-nav")) && tw`
 a {
     ${ tw`
         uppercase font-semibold no-underline text-black transition ease-in-out cursor-pointer
-        hover:text-main-500 hover:transition ease-in-out
+        hover:text-main-500 hover:transition hover:ease-in-out
     ` }
 
     &[aria-current="page"] {
