@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-export const ExistingForm = () => {
+export const CompanyForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (values) => {
     console.log(values);
-    axios.post(`${ process.env.URL }/contact-forms`, {
+    axios.post(`${ process.env.URL }/emails`, {
         subject: values.subject,
         company_name: values.company_name,
         company_num: values.company_num,
@@ -178,4 +178,4 @@ export const ExistingForm = () => {
   );
 };
 
-export default ExistingForm;
+export default CompanyForm;

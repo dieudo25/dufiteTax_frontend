@@ -1,5 +1,5 @@
 import React from "react";
-import ExistingForm from "./ExistingForm";
+import CompanyForm from "./CompanyForm";
 import SSection from "./style/main";
 
 const ContactForm = ({
@@ -19,7 +19,7 @@ const ContactForm = ({
             <div className="contact-form-slider">
                 <div className="contact-slider-item">
                     <h3>Société, association, activité d'indépendant existante</h3>
-                    <ExistingForm />
+                    <CompanyForm />
                 </div>
             </div>
         </div>

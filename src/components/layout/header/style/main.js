@@ -81,8 +81,14 @@ const SHeader = styled.section`
   .header-nav {
     ${ tw`
       grid justify-center gap-5
-      lg:justify-start lg:grid-cols-4 lg:gap-0 lg:w-[fit-content]
+      lg:justify-start lg:grid-cols-4 lg:gap-0
   ` }
+
+    a {
+      ${ tw`
+        lg:w-[fit-content]
+      `}
+    }
   }
   .btn-container {
 
