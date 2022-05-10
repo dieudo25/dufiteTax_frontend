@@ -27,129 +27,119 @@ export const CompanyForm = () => {
   };
 
   return (
-    <form 
-        onSubmit={handleSubmit(onSubmit)}
-    >
-        <div className="grid-fields-container-2">
+    <form onSubmit= { handleSubmit(onSubmit) }>
+        <input 
+            id="subject" 
+            type="hidden" 
+            value="company" 
+            {...register("subject")} 
+        />
+        <div className="form-field-container">
+            <label htmlFor="company_name">Dénomination</label>
             <input 
-                id="subject" 
-                type="hidden" 
-                value="company" 
-                {...register("subject")} 
+                id="company_name" 
+                name="company_name" 
+                type="text" 
+                {...register("company_name", {
+                    required: "Veuillez remplir ce champ."
+                })} 
             />
-            <div className="form-field-container">
-                <label htmlFor="company_name">Dénomination</label>
-                <input 
-                    id="company_name" 
-                    name="company_name" 
-                    type="text" 
-                    {...register("company_name", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.company_name && errors.company_name.message}</p>
-            </div>
-            <div className="form-field-container">
-                <label htmlFor="company_num">Numéro d'entreprise</label>
-                <input 
-                    id="company_num" 
-                    name="company_num" 
-                    type="text" 
-                    {...register("company_num", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.company_num && errors.company_num.message}</p>
-            </div>
+            <p>{errors.company_name && errors.company_name.message}</p>
         </div>
-        <div className="grid-fields-container-2">
-            <div className="form-field-container">
-                <label htmlFor="email">E-mail</label>
-                <input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    {...register("email", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.email && errors.email.message}</p>
-            </div>
-            <div className="form-field-container">
-                <label htmlFor="phone_num">Numéro de téléphone</label>
-                <input 
-                    id="phone_num" 
-                    name="phone_num" 
-                    type="tel" 
-                    {...register("phone_num",  {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.email && errors.email.message}</p>
-            </div>
+        <div className="form-field-container">
+            <label htmlFor="company_num">Numéro d'entreprise</label>
+            <input 
+                id="company_num" 
+                name="company_num" 
+                type="text" 
+                {...register("company_num", {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.company_num && errors.company_num.message}</p>
         </div>
-        <div className="grid-fields-container-4">
-            <div className="form-field-container">
-                <label htmlFor="nb_facture_vente">Nombre de facture de vente (annuelle)</label>
-                <input 
-                    id="nb_facture_vente" 
-                    name="nb_facture_vente" 
-                    type="number" 
-                    {...register("nb_facture_vente", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.nb_facture_vente && errors.nb_facture_vente.message}</p>
-            </div>
-            <div className="form-field-container">
-                <label htmlFor="nb_facture_achat">Nombre de facture d'achat (annuelle)</label>
-                <input 
-                    id="nb_facture_achat" 
-                    name="nb_facture_achat" 
-                    type="number" 
-                    {...register("nb_facture_achat", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.nb_facture_achat && errors.nb_facture_achat.message}</p>
-            </div>
-            <div className="form-field-container">
-                <label htmlFor="nb_transaction">Nombre de transactions bancaire (annuelle)</label>
-                <input 
-                    id="nb_transaction" 
-                    name="nb_transaction" 
-                    type="number" 
-                    {...register("nb_transaction", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.nb_transaction && errors.nb_transaction.message}</p>
-            </div>
-            <div className="form-field-container">
-                <label htmlFor="decla_tva">Déclarations TVA périodique</label>
-                <input 
-                    className="checkbox-form" 
-                    type="checkbox" 
-                    id="decla_tva" 
-                    name="decla_tva"  
-                    {...register("decla_tva")} 
-                />
-                <p>{errors.decla_tva && errors.decla_tva.message}</p>
-            </div>
+        <div className="form-field-container">
+            <label htmlFor="email">E-mail</label>
+            <input 
+                id="email" 
+                name="email" 
+                type="email" 
+                {...register("email", {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.email && errors.email.message}</p>
         </div>
-        <div className="grid-fields-container-1">
-            <div className="form-field-container">
-                <label htmlFor="message">Informations additionnelles à communiquer</label>
-                <textarea 
-                    id="message" 
-                    name="message" 
-                    rows="15" 
-                    {...register("message", {
-                        required: "Veuillez remplir ce champ."
-                    })} 
-                />
-                <p>{errors.message && errors.message.message}</p>
-            </div>
+        <div className="form-field-container">
+            <label htmlFor="phone_num">Numéro de téléphone</label>
+            <input 
+                id="phone_num" 
+                name="phone_num" 
+                type="tel" 
+                {...register("phone_num",  {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.email && errors.email.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="decla_tva">Déclarations TVA périodique</label>
+            <input 
+                className="checkbox-form" 
+                type="checkbox" 
+                id="decla_tva" 
+                name="decla_tva"  
+                {...register("decla_tva")} 
+            />
+            <p>{errors.decla_tva && errors.decla_tva.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="nb_facture_vente">Nombre de facture de vente (annuelle)</label>
+            <input 
+                id="nb_facture_vente" 
+                name="nb_facture_vente" 
+                type="number" 
+                {...register("nb_facture_vente", {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.nb_facture_vente && errors.nb_facture_vente.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="nb_facture_achat">Nombre de facture d'achat (annuelle)</label>
+            <input 
+                id="nb_facture_achat" 
+                name="nb_facture_achat" 
+                type="number" 
+                {...register("nb_facture_achat", {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.nb_facture_achat && errors.nb_facture_achat.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="nb_transaction">Nombre de transactions bancaire (annuelle)</label>
+            <input 
+                id="nb_transaction" 
+                name="nb_transaction" 
+                type="number" 
+                {...register("nb_transaction", {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.nb_transaction && errors.nb_transaction.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="message">Informations additionnelles à communiquer</label>
+            <textarea 
+                id="message" 
+                name="message" 
+                rows="15" 
+                {...register("message", {
+                    required: "Veuillez remplir ce champ."
+                })} 
+            />
+            <p>{errors.message && errors.message.message}</p>
         </div>
         <div className="form-field-container valid-checkbox-field">
             <input 
@@ -171,7 +161,7 @@ export const CompanyForm = () => {
                 <p>{errors.confirm_data_manage && errors.confirm_data_manage.message}</p>
             </div>
         </div>
-        <div className="submit-container">
+        <div className="form-field-container submit-container">
             <input className="submit-form" type="submit" value="Envoyer"/>
         </div>
     </form>

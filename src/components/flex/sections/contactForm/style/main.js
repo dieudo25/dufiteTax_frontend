@@ -86,47 +86,47 @@ const SSection = styled.section`
         .contact-form-slider {
             .contact-slider-item {
                 form {
-                    div.grid-fields-container-1 {
-                        ${ tw`
-                            flex flex-wrap justify-center 
-                        ` }
+                    ${ tw`
+                        grid gap-5
+                        md:grid-cols-3
+                    ` }
 
-                        div.form-field-container {
-                            ${ tw`
-                                w-full mb-6 
-                                md:w-full md:mb-0 
-                            ` }
-                        }
+                    .form-field-container:nth-child(2) {
+                        ${ tw`
+                            md:col-start-1 md:col-span-1
+                        ` } 
                     }
 
-                    div.grid-fields-container-2 {
+                    .form-field-container:nth-child(4) {
                         ${ tw`
-                            flex flex-wrap 
-                            md:gap-x-20
-                        ` }
-
-                        div.form-field-container {
-                            ${ tw`
-                                w-full mb-6 
-                                md:w-1/3 md:mb-0 
-                            ` }
-                        }
+                            md:col-start-1 md:col-span-1
+                        ` } 
                     }
 
-                    div.grid-fields-container-4 {
+                    .form-field-container:nth-child(7) {
                         ${ tw`
-                            flex flex-wrap
-                            md:gap-x-20
-                            lg:gap-x-16
-                        ` }
+                            md:col-start-1 md:col-span-1
+                        ` } 
+                    }
 
-                        div.form-field-container {
+                    .form-field-container:nth-child(10) {
+                        ${ tw`
+                            md:col-start-1 md:col-span-3
+                        ` } 
+                    }
+
+                    .form-field-container:nth-child(11) {
+                        ${ tw`
+                            md:col-start-1 md:col-span-3
+                        ` } 
+                    }
+
+                    .form-field-container:nth-child(12) {
+                        input {
                             ${ tw`
-                                w-full mb-6 
-                                md:w-1/3 md:mb-0
-                                lg:w-1/5 
+                                
                             ` }
-                        }
+                        } 
                     }
 
                     label {
@@ -143,7 +143,7 @@ const SSection = styled.section`
 
                     input {
                         ${ tw`
-                            block w-full border rounded py-2 mb-3 leading-tight rounded-none
+                            block w-full border rounded py-2  leading-tight rounded-none
                             focus:outline-none focus:bg-white
                         ` }
                     }
@@ -156,8 +156,9 @@ const SSection = styled.section`
 
                     textarea {
                         ${ tw`
-                            appearance-none block w-full border rounded py-2 mb-3 leading-tight rounded-none
+                            appearance-none block w-full border rounded py-2  leading-tight rounded-none
                             focus:outline-none focus:bg-white
+                            
                         ` }
                     }
 
@@ -169,19 +170,19 @@ const SSection = styled.section`
 
                     .valid-checkbox-field {
                         ${ tw`
-                            flex gap-5 text-gray-500 mb-6
-                            md:px-16
+                            flex gap-5 text-gray-500
                         ` }
                     }
 
                     div.submit-container {
                         ${ tw`
-                            w-full
-                        ` }
+                            md:col-span-3
+                        ` } 
                         .submit-form {
                             ${ tw`
-                                block border-2 border-main-500 w-[fit-content] mx-auto bg-main-500 text-white px-5 py-3 transition ease-in-out uppercase cursor-pointer
+                                border-2 border-main-500 w-[fit-content] bg-main-500 text-white px-5 py-3 transition ease-in-out uppercase cursor-pointer
                                 hover:bg-white hover:text-main-500 hover:transition hover:ease-in-out
+                                md:m-auto
                             ` } 
                         }
                     }

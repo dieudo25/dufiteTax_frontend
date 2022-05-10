@@ -8,6 +8,7 @@ const SHeader = styled.section`
     md:flex md:justify-between md:items-center
     xl:w-[960px]
   ` }
+
   .nav-logo {
     .img-container {
       ${ tw`
@@ -16,13 +17,14 @@ const SHeader = styled.section`
     }
   }
   .rich-text {
-    h1 {
+    h2 {
       ${ tw`
         m-0 text-center font-light
         md:text-[21px]
         lg:text-[21px]
         xl:text-[2rem]
       ` }
+
       strong {
         ${ tw`
           text-main-500
