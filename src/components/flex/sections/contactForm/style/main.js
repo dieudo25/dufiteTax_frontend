@@ -29,12 +29,12 @@ const SSection = styled.section`
     }
 
     /* Section border color */
-    ${ ({ section }) => section.borer_color != null &&
+    ${ ({ section }) => section.border_color != null &&
         `
-            border: 1px solid ${ section.borer_color };
+            border: 1px solid ${ section.border_color };
 
             &:hover {
-                border: 1px solid ${ section.borer_color_hover };
+                border: 1px solid ${ section.border_color_hover };
             }
         ` 
     }
@@ -42,7 +42,6 @@ const SSection = styled.section`
     div.section-container {
         ${ tw`
             mx-auto
-            xl:w-[960px]
         
         ` }
     
@@ -69,120 +68,198 @@ const SSection = styled.section`
         }
     
         /* Controller border color */
-        ${ ({ container }) => container.borer_color != null &&
+        ${ ({ container }) => container.border_color != null &&
             `
-                border: 1px solid ${ container.borer_color };
+                border: 1px solid ${ container.border_color };
     
                 &:hover {
-                    border: 1px solid ${ container.borer_color_hover };
+                    border: 1px solid ${ container.border_color_hover };
                 }
             ` 
         }
 
         .contact-form-title {
-
+            ${ tw`
+                text-center text-white pt-[50px] m-0
+                pt-[100px] 
+            ` }
         }
 
         .contact-form-slider {
-            .contact-slider-item {
-                form {
+            ${ tw`
+                pb-[50px]
+                md:pb-[100px]
+            ` }
+            div.slick-slider {
+                ${ tw`
+                    grid
+                ` }
+
+                ul.slick-dots.slick-subject {
+                    display: grid!important;
+
                     ${ tw`
-                        grid gap-5
+                        row-start-1 list-none p-0 gap-5 mt-0 pt-0 py-[50px] w-11/12 mx-auto
                         md:grid-cols-3
                     ` }
 
-                    .form-field-container:nth-child(2) {
+                    li {
                         ${ tw`
-                            md:col-start-1 md:col-span-1
-                        ` } 
-                    }
-
-                    .form-field-container:nth-child(4) {
-                        ${ tw`
-                            md:col-start-1 md:col-span-1
-                        ` } 
-                    }
-
-                    .form-field-container:nth-child(7) {
-                        ${ tw`
-                            md:col-start-1 md:col-span-1
-                        ` } 
-                    }
-
-                    .form-field-container:nth-child(10) {
-                        ${ tw`
-                            md:col-start-1 md:col-span-3
-                        ` } 
-                    }
-
-                    .form-field-container:nth-child(11) {
-                        ${ tw`
-                            md:col-start-1 md:col-span-3
-                        ` } 
-                    }
-
-                    .form-field-container:nth-child(12) {
-                        input {
-                            ${ tw`
-                                
-                            ` }
-                        } 
-                    }
-
-                    label {
-                        ${ tw`
-                            block uppercase tracking-wide text-xs font-bold mb-2
+                            
                         ` }
-
-                        &.confirm-data-manage {
-                            ${ tw`                            
-                                normal-case font-normal
+                        button {
+                            ${ tw`
+                                w-full m-auto p-3 uppercase text-main-500 bg-white border-white cursor-pointer transition ease-in-out
+                                hover:text-white hover:bg-main-500 hover:transition hover:ease-in-out
                             ` }
                         }
                     }
+                }
 
-                    input {
+                .slick-list {
+                    form {
                         ${ tw`
-                            block w-full border rounded py-2  leading-tight rounded-none
-                            focus:outline-none focus:bg-white
+                            grid gap-5 w-11/12 m-auto
+                            md:grid-cols-3 
                         ` }
-                    }
-
-                    input.checkbox-form {
-                        ${ tw`
-                            w-[fit-content]
-                        ` }
-                    }
-
-                    textarea {
-                        ${ tw`
-                            appearance-none block w-full border rounded py-2  leading-tight rounded-none
-                            focus:outline-none focus:bg-white
-                            
-                        ` }
-                    }
-
-                    p {
-                        ${ tw`
-                            text-main-500 text-xs italic
-                        ` }
-                    }
-
-                    .valid-checkbox-field {
-                        ${ tw`
-                            flex gap-5 text-gray-500
-                        ` }
-                    }
-
-                    div.submit-container {
-                        ${ tw`
-                            md:col-span-3
-                        ` } 
-                        .submit-form {
+        
+                        div.form-field-container:nth-of-type(1) {
                             ${ tw`
-                                border-2 border-main-500 w-[fit-content] bg-main-500 text-white px-5 py-3 transition ease-in-out uppercase cursor-pointer
-                                hover:bg-white hover:text-main-500 hover:transition hover:ease-in-out
-                                md:m-auto
+                                md:col-start-1 md:col-span-1
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(3) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-1
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(6) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-1
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(9) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-3
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(10) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-3
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(11) {
+                            input {
+                                ${ tw`
+                                    
+                                ` }
+                            } 
+                        }
+        
+                        label {
+                            ${ tw`
+                                block uppercase tracking-wide text-xs font-bold mb-2 text-white
+                            ` }
+        
+                            &.confirm-data-manage {
+                                ${ tw`                            
+                                    normal-case font-normal
+                                ` }
+                            }
+                        }
+        
+                        input {
+                            ${ tw`
+                                block w-full border py-2
+                                focus:outline-none focus:bg-white
+                            ` }
+                        }
+        
+                        input.checkbox-form {
+                            ${ tw`
+                                w-[fit-content]
+                            ` }
+                        }
+        
+                        textarea {
+                            ${ tw`
+                                appearance-none block w-full border py-2
+                                focus:outline-none focus:bg-white
+                                
+                            ` }
+                        }
+
+                        select {
+                            ${ tw`
+                                block w-full border py-2
+                                focus:outline-none focus:bg-white
+                            ` }
+                        }
+        
+                        p {
+                            ${ tw`
+                                text-white text-sm italic
+                            ` }
+                        }
+        
+                        .valid-checkbox-field {
+                            ${ tw`
+                                flex gap-5 text-gray-500
+                            ` }
+                        }
+        
+                        div.submit-container {
+                            ${ tw`
+                                md:col-span-3
+                            ` } 
+                            .submit-form {
+                                ${ tw`
+                                    border-2 border-white w-[fit-content] bg-white text-main-500 m-auto px-5 py-3 transition ease-in-out uppercase cursor-pointer
+                                    hover:bg-main-500 hover:text-white hover:transition hover:ease-in-out
+                                ` } 
+                            }
+                        }
+                    }
+
+                    form.call-form {
+                        div.form-field-container:nth-of-type(1) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-1
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(3) {
+                            ${ tw`
+                                md:col-start-3 md:col-span-1
+                            ` } 
+                        }
+                        
+                        div.form-field-container:nth-of-type(4) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-1
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(6) {
+                            ${ tw`
+                                md:col-start-3 md:col-span-1
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(7) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-3
+                            ` } 
+                        }
+        
+                        div.form-field-container:nth-of-type(8) {
+                            ${ tw`
+                                md:col-start-1 md:col-span-3
                             ` } 
                         }
                     }

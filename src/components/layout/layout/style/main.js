@@ -11,10 +11,6 @@ ${ tw`
     row-start-1 min-h-[80px]
   ` }
 
-  ${ ({ className }) => (className === "page-accueil" && tw`
-    
-  `) }
-
   nav {
     &.menu.is-visible {
       ${ tw`
@@ -39,6 +35,12 @@ main {
         sm:mb-[100px]
       ` }
     }
+  }
+
+  section#header-contact, section#contact-p, section#contact-form {
+    ${ tw`
+        mb-0
+    ` }
   }
 }
 `

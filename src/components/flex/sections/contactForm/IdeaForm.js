@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-export const CompanyForm = () => {
+export const IdeaForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (values) => {
@@ -10,14 +10,14 @@ export const CompanyForm = () => {
     axios.post(`${ process.env.URL }/emails`, {
         subject: values.subject,
         company_name: values.company_name,
-        company_num: values.company_num,
+        legal_form: values.legal_form,
         confirm_data_manage: values.confirm_data_manage,
-        decla_tva: values.decla_tva,
+        business_sector: values.business_sector,
         email: values.email,
         message: values.message,
         nb_facture_achat: values.nb_facture_achat,
         nb_facture_vente: values.nb_facture_vente,
-        nb_transaction: values.nb_transaction,
+        revenue: values.revenue,
         phone_num: values.phone_num,
     }).then(function (response) {
         console.log(response);
@@ -30,15 +30,15 @@ export const CompanyForm = () => {
     <form onSubmit= { handleSubmit(onSubmit) }>
         <input 
             id="subject" 
-            value="company" 
             type="hidden" 
+            value="idea" 
             {...register("subject")} 
         />
         <div className="form-field-container">
-            <label htmlFor="company_name">Dénomination</label>
+            <label htmlFor="company_name">Nom de votre projet</label>
             <input 
                 id="company_name" 
-                name="company_name" 
+                name="company_name"  
                 type="text" 
                 {...register("company_name", {
                     required: "Veuillez remplir ce champ."
@@ -47,22 +47,23 @@ export const CompanyForm = () => {
             <p>{errors.company_name && errors.company_name.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="company_num">Numéro d'entreprise</label>
-            <input 
-                id="company_num" 
-                name="company_num" 
-                type="text" 
-                {...register("company_num", {
-                    required: "Veuillez remplir ce champ."
-                })} 
-            />
-            <p>{errors.company_num && errors.company_num.message}</p>
+            <label htmlFor="legal_form">Forme juridique</label>
+            <select 
+                id="legal_form" 
+                name="legal_form" 
+                {...register("legal_form")}
+            >
+                <option value="company">Société</option>
+                <option value="association">Association</option>
+                <option value="independent">Indépendant</option>
+            </select>
+            <p>{errors.legal_form && errors.legal_form.message}</p>
         </div>
         <div className="form-field-container">
             <label htmlFor="email">E-mail</label>
             <input 
                 id="email" 
-                name="email" 
+                name="email"
                 type="email" 
                 {...register("email", {
                     required: "Veuillez remplir ce champ."
@@ -83,51 +84,55 @@ export const CompanyForm = () => {
             <p>{errors.email && errors.email.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="decla_tva">Déclarations TVA périodique</label>
+            <label htmlFor="business_sector">Secteur d'activité</label>
             <input 
-                className="checkbox-form" 
-                type="checkbox" 
-                id="decla_tva" 
-                name="decla_tva" 
-                {...register("decla_tva")} 
+                id="business_sector" 
+                name="business_sector" 
+                type="text" 
+                {...register("business_sector", {
+                    required: "Veuillez remplir ce champ."
+                })} 
             />
-            <p>{errors.decla_tva && errors.decla_tva.message}</p>
+            <p>{errors.business_sector && errors.business_sector.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_vente">facture de vente<br></br>(annuelle)</label>
+            <label htmlFor="nb_facture_vente">facture de vente<br></br>(estimation annuelle)</label>
             <input 
                 id="nb_facture_vente" 
                 name="nb_facture_vente" 
                 type="number" 
                 {...register("nb_facture_vente", {
-                    required: "Veuillez remplir ce champ."
+                    required: "Veuillez remplir ce champ.",
+                    min: 0,
                 })} 
             />
             <p>{errors.nb_facture_vente && errors.nb_facture_vente.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_achat">facture d'achat<br></br>(annuelle)</label>
-            <input 
+            <label htmlFor="nb_facture_achat">facture d'achat<br></br>(estimation annuelle)</label>
+            <input
                 id="nb_facture_achat" 
-                name="nb_facture_achat" 
+                name="nb_facture_achat"  
                 type="number" 
                 {...register("nb_facture_achat", {
-                    required: "Veuillez remplir ce champ."
+                    required: "Veuillez remplir ce champ.",
+                    min: 0,
                 })} 
             />
             <p>{errors.nb_facture_achat && errors.nb_facture_achat.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_transaction">transactions bancaire<br></br>(annuelle)</label>
+            <label htmlFor="revenue">Chiffre d'affaire<br></br>(estimation annuelle)</label>
             <input 
-                id="nb_transaction" 
-                name="nb_transaction" 
+                id="revenue" 
+                name="revenue" 
                 type="number" 
-                {...register("nb_transaction", {
-                    required: "Veuillez remplir ce champ."
+                {...register("revenue", {
+                    required: "Veuillez remplir ce champ.",
+                    min: 0,
                 })} 
             />
-            <p>{errors.nb_transaction && errors.nb_transaction.message}</p>
+            <p>{errors.revenue && errors.revenue.message}</p>
         </div>
         <div className="form-field-container">
             <label htmlFor="message">Informations additionnelles à communiquer</label>
@@ -142,7 +147,7 @@ export const CompanyForm = () => {
         <div className="form-field-container valid-checkbox-field">
             <input 
                 className="checkbox-form" 
-                type="checkbox"
+                type="checkbox" 
                 id="confirm_data_manage" 
                 name="confirm_data_manage" 
                 {...register("confirm_data_manage", {
@@ -150,7 +155,7 @@ export const CompanyForm = () => {
                 })} 
             />
             <div>
-                <label htmlFor="confirm_data_manage" className="confirm-data-manage">
+                <label  htmlFor="confirm_data_manage" className="confirm-data-manage">
                     En soumettant ce formulaire, j'accepte que les informations saisies dans 
                     ce formulaire soient utilisées, exploitées, traitées pour permettre de me 
                     recontacter dans le cadre de la relation commerciale qui découle de cette 
@@ -166,4 +171,4 @@ export const CompanyForm = () => {
   );
 };
 
-export default CompanyForm;
+export default IdeaForm;

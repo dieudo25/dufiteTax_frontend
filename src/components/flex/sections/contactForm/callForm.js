@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import getCurrentDate from "../../../../utils/date";
 
-export const CompanyForm = () => {
+export const CallForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (values) => {
@@ -10,15 +11,15 @@ export const CompanyForm = () => {
     axios.post(`${ process.env.URL }/emails`, {
         subject: values.subject,
         company_name: values.company_name,
-        company_num: values.company_num,
+        email: values.email,
+        phone_num: values.phone_num,
+        availability_1: values.availability_1,
+        availability_2: values.availability_2,
+        availability_3: values.availability_3,
+        call_subject: values.call_subject,
         confirm_data_manage: values.confirm_data_manage,
         decla_tva: values.decla_tva,
-        email: values.email,
         message: values.message,
-        nb_facture_achat: values.nb_facture_achat,
-        nb_facture_vente: values.nb_facture_vente,
-        nb_transaction: values.nb_transaction,
-        phone_num: values.phone_num,
     }).then(function (response) {
         console.log(response);
     }).catch(function (error) {
@@ -27,15 +28,15 @@ export const CompanyForm = () => {
   };
 
   return (
-    <form onSubmit= { handleSubmit(onSubmit) }>
+    <form onSubmit= { handleSubmit(onSubmit) } className="call-form">
         <input 
             id="subject" 
-            value="company" 
+            value="call" 
             type="hidden" 
             {...register("subject")} 
         />
         <div className="form-field-container">
-            <label htmlFor="company_name">Dénomination</label>
+            <label htmlFor="company_name">Nom et prénom</label>
             <input 
                 id="company_name" 
                 name="company_name" 
@@ -45,18 +46,6 @@ export const CompanyForm = () => {
                 })} 
             />
             <p>{errors.company_name && errors.company_name.message}</p>
-        </div>
-        <div className="form-field-container">
-            <label htmlFor="company_num">Numéro d'entreprise</label>
-            <input 
-                id="company_num" 
-                name="company_num" 
-                type="text" 
-                {...register("company_num", {
-                    required: "Veuillez remplir ce champ."
-                })} 
-            />
-            <p>{errors.company_num && errors.company_num.message}</p>
         </div>
         <div className="form-field-container">
             <label htmlFor="email">E-mail</label>
@@ -83,51 +72,58 @@ export const CompanyForm = () => {
             <p>{errors.email && errors.email.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="decla_tva">Déclarations TVA périodique</label>
+            <label htmlFor="availability_3">1<small>er</small> Disponibilité</label>
             <input 
-                className="checkbox-form" 
-                type="checkbox" 
-                id="decla_tva" 
-                name="decla_tva" 
-                {...register("decla_tva")} 
-            />
-            <p>{errors.decla_tva && errors.decla_tva.message}</p>
+                type="datetime-local" 
+                id="availability_1" 
+                name="availability_1"
+                min={getCurrentDate()} 
+                {...register("availability_1", {
+                    required: "Veuillez choisir une date."
+                })} 
+            >
+            </input>
+            <p>{errors.availability_1 && errors.availability_1.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_vente">facture de vente<br></br>(annuelle)</label>
+            <label htmlFor="availability_2">2<small>er</small> Disponibilité</label>
             <input 
-                id="nb_facture_vente" 
-                name="nb_facture_vente" 
-                type="number" 
-                {...register("nb_facture_vente", {
+                type="datetime-local" 
+                id="availability_2" 
+                name="availability_2"
+                min={getCurrentDate()} 
+                {...register("availability_2", {
+                    required: "Veuillez choisir une date."
+                })} 
+            >
+            </input>
+            <p>{errors.availability_2 && errors.availability_2.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="availability_3">3<small>er</small> Disponibilité</label>
+            <input 
+                type="datetime-local" 
+                id="availability_3" 
+                name="availability_3"
+                min={getCurrentDate()} 
+                {...register("availability_3", {
+                    required: "Veuillez choisir une date."
+                })} 
+            >
+            </input>
+            <p>{errors.availability_3 && errors.availability_3.message}</p>
+        </div>
+        <div className="form-field-container">
+            <label htmlFor="call_subject">Objet de la demande</label>
+            <input 
+                id="call_subject" 
+                name="call_subject" 
+                type="text" 
+                {...register("call_subject", {
                     required: "Veuillez remplir ce champ."
                 })} 
             />
-            <p>{errors.nb_facture_vente && errors.nb_facture_vente.message}</p>
-        </div>
-        <div className="form-field-container">
-            <label htmlFor="nb_facture_achat">facture d'achat<br></br>(annuelle)</label>
-            <input 
-                id="nb_facture_achat" 
-                name="nb_facture_achat" 
-                type="number" 
-                {...register("nb_facture_achat", {
-                    required: "Veuillez remplir ce champ."
-                })} 
-            />
-            <p>{errors.nb_facture_achat && errors.nb_facture_achat.message}</p>
-        </div>
-        <div className="form-field-container">
-            <label htmlFor="nb_transaction">transactions bancaire<br></br>(annuelle)</label>
-            <input 
-                id="nb_transaction" 
-                name="nb_transaction" 
-                type="number" 
-                {...register("nb_transaction", {
-                    required: "Veuillez remplir ce champ."
-                })} 
-            />
-            <p>{errors.nb_transaction && errors.nb_transaction.message}</p>
+            <p>{errors.call_subject && errors.call_subject.message}</p>
         </div>
         <div className="form-field-container">
             <label htmlFor="message">Informations additionnelles à communiquer</label>
@@ -166,4 +162,4 @@ export const CompanyForm = () => {
   );
 };
 
-export default CompanyForm;
+export default CallForm;
