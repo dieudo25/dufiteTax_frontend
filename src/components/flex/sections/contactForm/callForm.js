@@ -7,7 +7,7 @@ export const CallForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (values) => {
-    console.log(values);
+    console.log("values", values);
     axios.post(`${ process.env.URL }/emails`, {
         subject: values.subject,
         company_name: values.company_name,
