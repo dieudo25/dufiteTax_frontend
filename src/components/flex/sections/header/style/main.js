@@ -1,12 +1,10 @@
 import tw, { styled } from "twin.macro"
 
-
 const SSection = styled.section`
 ${ tw`
     relative h-[400px]
     sm:h-[300px]
     md:h-[400px]
-
 ` }
 
 .img-container {

@@ -8,6 +8,7 @@ const SHeader = styled.section`
     md:flex md:justify-between md:items-center
     xl:w-[960px]
   ` }
+
   .nav-logo {
     .img-container {
       ${ tw`
@@ -16,13 +17,14 @@ const SHeader = styled.section`
     }
   }
   .rich-text {
-    h1 {
+    h2 {
       ${ tw`
         m-0 text-center font-light
         md:text-[21px]
         lg:text-[21px]
         xl:text-[2rem]
       ` }
+
       strong {
         ${ tw`
           text-main-500
@@ -81,8 +83,14 @@ const SHeader = styled.section`
   .header-nav {
     ${ tw`
       grid justify-center gap-5
-      lg:justify-start lg:grid-cols-4 lg:gap-0 lg:w-[fit-content]
+      lg:justify-start lg:grid-cols-4 lg:gap-0
   ` }
+
+    a {
+      ${ tw`
+        lg:w-[fit-content]
+      `}
+    }
   }
   .btn-container {
 
