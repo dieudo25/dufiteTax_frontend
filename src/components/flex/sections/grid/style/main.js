@@ -35,9 +35,7 @@ const SSection = styled.section`
     }
 
     /* Classname - PAGE ABOUT - ABOUT-VALUES-GRID */
-    ${ ({ className }) => className.includes('about-values-grid') && tw`
-        mb-[0!important]           
-    ` }
+    
 
     .section-container {
         ${ tw`
@@ -78,13 +76,11 @@ const SSection = styled.section`
         }
 
         /* Classname - PAGE ABOUT - ABOUT-VALUES-GRID */
-        ${ ({ className }) => className.includes('about-values-grid') && tw`
-            border-solid border-white border-0 border-b-2               
-        ` }
+
         
         .cards-grid {
             ${ tw`
-                grid gap-[50px] my-[50px]
+                grid gap-[50px]my-[50px]
                 sm:grid-cols-2 sm:my-[100px]
                 lg:grid-cols-4
     

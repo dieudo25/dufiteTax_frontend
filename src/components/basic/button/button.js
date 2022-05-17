@@ -1,7 +1,20 @@
 import React from "react";
 import SButton from "./style/main";
 
-const Button = ({ button: { text, bg_color, bg_color_hover, border_color, border_color_hover, text_color, text_color_hover, page }, dataSal, dataSalDuration}) => (
+const Button = ({ 
+    button: { 
+        text,
+        bg_color, 
+        bg_color_hover, 
+        border_color, 
+        border_color_hover, 
+        text_color, 
+        text_color_hover, 
+        page 
+    }, 
+    dataSal, 
+    dataSalDuration
+}) => (
     <div 
         className="btn-container"
         data-sal={dataSal}
@@ -23,4 +36,5 @@ const Button = ({ button: { text, bg_color, bg_color_hover, border_color, border
         }
     </div>
 )
+
 export default Button;

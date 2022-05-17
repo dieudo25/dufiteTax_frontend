@@ -290,8 +290,7 @@ const SSection = styled.section`
 
     &:where(.about-us-cta) {
         ${tw`
-            object-contain mt-[-50px]
-            sm:mt-[-100px]
+            object-contain
             lg:object-contain
         `}
 

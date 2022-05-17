@@ -7,7 +7,7 @@ ${ tw`
     hover:transition hover:ease-in-out
 `}
 
-${ ({ bg_color, bg_color_hover }) => bg_color
+${ ({ bg_color, bg_color_hover }) => bg_color && bg_color_hover
     ?
     `
         background-color: ${ bg_color };
@@ -16,22 +16,22 @@ ${ ({ bg_color, bg_color_hover }) => bg_color
         }
     `
     :
-    tw`bg-black hover:bg-gray-400`
+    tw`bg-main-500`
 }
 
-${ ({ border_color, border_color_hover }) => border_color
+${ ({ border_color, border_color_hover }) => border_color && border_color_hover
     ?
     `
         border: 2px solid ${ border_color };
         &:hover {
-            border: 2px solid ${ border_color_hover }
+            border: 2px solid ${ border_color_hover };
         }
     `
     :
-    tw`bg-black hover:bg-gray-400`
+    tw`border-white border-solid hover:border-white`
 }
 
-${ ({ text_color, text_color_hover }) => text_color
+${ ({ text_color, text_color_hover }) => text_color && text_color_hover
     ?
     `
         color: ${ text_color };
@@ -40,7 +40,7 @@ ${ ({ text_color, text_color_hover }) => text_color
         }
     `
     :
-    tw`text-black hover:text-gray-400`
+    tw`text-main-500 hover:text-white`
 }
 
 svg {

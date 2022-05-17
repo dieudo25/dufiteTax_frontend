@@ -37,7 +37,7 @@ main {
     }
   }
 
-  section#header-contact, section#contact-p, section#contact-form {
+  section#header-contact, section#contact-p, section#contact-form,section.header-about, section.about-us-cta {
     ${ tw`
         mb-0
     ` }
