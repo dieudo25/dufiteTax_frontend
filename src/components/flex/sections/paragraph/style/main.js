@@ -94,7 +94,6 @@ div.section-container {
         h3, h4, h5, em, strong {
             ${ tw`
                 not-italic font-light 
-                md:px-[100px]
             ` }
     
             ${ ({ color }) => color && `

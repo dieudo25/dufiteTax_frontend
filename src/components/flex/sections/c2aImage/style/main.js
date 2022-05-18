@@ -106,8 +106,8 @@ const SSection = styled.section`
     
     div.section-container {
         ${ tw` 
-            mx-auto grid grid-rows-2 items-center gap-8
-            sm:grid-cols-2 sm:grid-rows-1 
+            mx-auto
+            sm:grid sm:grid-cols-2 sm:grid-rows-1 sm:items-center sm:gap-8
         ` }
         
         /* Container width */
@@ -178,6 +178,10 @@ const SSection = styled.section`
             }
     
             div.rich-text {
+                ${ tw`
+                    mb-[25px]
+                    sm:mb-0
+                ` }
     
                 ${ ({ button }) => button && tw`
                     mb-5
@@ -217,7 +221,8 @@ const SSection = styled.section`
             .btn-container {
                 a {
                     ${ tw`
-                        uppercase
+                        uppercase mb-[25px]
+                        sm:mb-0
                     `}
                 }
             }
@@ -225,18 +230,11 @@ const SSection = styled.section`
     
         div.img-container.c2a-img {
             ${ tw`
-                row-span-1 w-full h-full
+                row-span-1 w-full h-[220px]
                 sm:row-start-1
                 lg:h-[455px]
             ` }
 
-            /* ClassName - ABOUT PAGE - ABOUT PROFILE */
-            ${ ({ className }) => (className.includes("about-profile") && tw`
-                h-[230px]
-                sm:h-[230px]
-                lg:h-[250px]
-                xl:h-[280px]
-            `) }
             
             /* FIRST ELEMENT & BIGGER ELEMENT */
             ${ ({ first_element, bigger_items }) => first_element === 'text' 
@@ -274,16 +272,11 @@ const SSection = styled.section`
                     xl:h-[280px]
                 `} 
 
-                /* ClassName - ABOUT PAGE - ABOUT-US-CTA  */
-                ${ ({ className }) => (className.includes("about-us-cta") && tw`
-                    object-contain
-                    lg:object-contain
-                `)}
-
-                /* ClassName - ABOUT PAGE - ABOUT-PROFILE  */
-                ${ ({ className }) => (className.includes("about-profile") && tw`
+                img {
+                    ${ tw`
                     object-[0 30%]
-                `) }
+                ` }
+                }
             }
         }
     }

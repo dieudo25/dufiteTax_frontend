@@ -29,15 +29,13 @@ main {
   ` }
 
   section {
-    &:not(:last-child) {
-      ${ tw`
-        mb-[50px]
-        sm:mb-[100px]
-      ` }
-    }
+    ${ tw`
+      mb-[50px]
+      sm:mb-[100px]
+    ` }
   }
 
-  section#header-contact, section#contact-p, section#contact-form,section.header-about, section.about-us-cta {
+  section#header-contact, section#contact-p, section#contact-form,section.header-about, section.about-us-cta, .home-pricing {
     ${ tw`
         mb-0
     ` }

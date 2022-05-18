@@ -10,7 +10,7 @@ const SFooter = styled.footer`
         ${ tw`
             mx-auto my-[50px] w-10/12 max-w-[960px] grid gap-10 justify-center justify-items-center items-center
             md:my-[100px]
-            lg:grid-cols-[340px 1fr 340px]
+            lg:grid-cols-[340px 1fr 1fr]
 
         ` }
 
@@ -47,8 +47,8 @@ const SFooter = styled.footer`
 
         .menu {
             ${ tw`
-                flex-col justify-center text-center
-                lg:gap-[50px]
+                flex-col justify-center text-center 
+                lg:gap-[50px] lg:grid-cols-[1fr 1fr] lg:w-[275px]
             ` }
 
         }

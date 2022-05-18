@@ -38,6 +38,7 @@ const SHeader = styled.section`
   ${ tw`
   bg-main-500
   ` }
+
   .block-container {
     ${ tw`
       w-10/12 m-auto grid justify-center gap-10 mt-[50px] py-10
@@ -83,7 +84,7 @@ const SHeader = styled.section`
   .header-nav {
     ${ tw`
       grid justify-center gap-5
-      lg:justify-start lg:grid-cols-4 lg:gap-0
+      lg:flex lg:justify-start
   ` }
 
     a {

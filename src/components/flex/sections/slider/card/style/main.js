@@ -56,7 +56,8 @@ div.cards-slider {
                 ${ tw`
                     w-[225px] mx-auto max-h-[400px]
                     lg:w-[300px]
-                    lg2:w-[225px]
+                    lg2:w-[240px]
+                    xl:w-[320px]
                 ` } 
 
                 .img-container {
@@ -64,7 +65,8 @@ div.cards-slider {
                     ${ tw`
                         mx-auto w-[225px] h-[350px] relative z-20
                         lg:w-[300px]
-                        lg2:w-[225px]
+                        lg2:w-[240px]
+                        xl:w-[320px]
                     ` }
 
                     img {
