@@ -94,7 +94,7 @@ export const CompanyForm = () => {
             <p>{errors.decla_tva && errors.decla_tva.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_vente">facture de vente<br></br>(annuelle)</label>
+            <label htmlFor="nb_facture_vente">factures de ventes<br></br>(annuelle)</label>
             <input 
                 id="nb_facture_vente" 
                 name="nb_facture_vente" 
@@ -106,7 +106,7 @@ export const CompanyForm = () => {
             <p>{errors.nb_facture_vente && errors.nb_facture_vente.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_achat">facture d'achat<br></br>(annuelle)</label>
+            <label htmlFor="nb_facture_achat">factures d'achats<br></br>(annuelle)</label>
             <input 
                 id="nb_facture_achat" 
                 name="nb_facture_achat" 
@@ -118,7 +118,7 @@ export const CompanyForm = () => {
             <p>{errors.nb_facture_achat && errors.nb_facture_achat.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_transaction">transactions bancaire<br></br>(annuelle)</label>
+            <label htmlFor="nb_transaction">transactions bancaires<br></br>(annuelle)</label>
             <input 
                 id="nb_transaction" 
                 name="nb_transaction" 

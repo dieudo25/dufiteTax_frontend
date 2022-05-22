@@ -96,7 +96,7 @@ export const IdeaForm = () => {
             <p>{errors.business_sector && errors.business_sector.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_vente">facture de vente<br></br>(estimation annuelle)</label>
+            <label htmlFor="nb_facture_vente">factures de ventes<br></br>(estimation annuelle)</label>
             <input 
                 id="nb_facture_vente" 
                 name="nb_facture_vente" 
@@ -109,7 +109,7 @@ export const IdeaForm = () => {
             <p>{errors.nb_facture_vente && errors.nb_facture_vente.message}</p>
         </div>
         <div className="form-field-container">
-            <label htmlFor="nb_facture_achat">facture d'achat<br></br>(estimation annuelle)</label>
+            <label htmlFor="nb_facture_achat">factures d'achats<br></br>(estimation annuelle)</label>
             <input
                 id="nb_facture_achat" 
                 name="nb_facture_achat"  

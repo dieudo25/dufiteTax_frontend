@@ -92,7 +92,17 @@ const Header = () => {
           <Button button={ contact_us } />
         </div>
       </div>
-      <div className="bottom-nav-container">
+      <div className="menu-button-container">
+        <div className="btn-container" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) }>
+          <div className="btn-text">Menu</div>
+          <div className="btn-icon">
+            <div className={ `bar1 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />
+            <div className={ `bar2 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />
+            <div className={ `bar3 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />
+          </div>
+        </div>
+      </div>
+      <div className={`bottom-nav-container ${ isMenuActive ? 'is-visible' : 'not-visible' }`}>
         <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />
         <ExternalButton button={ customer_zone } icon="FaUser"/>
       </div>

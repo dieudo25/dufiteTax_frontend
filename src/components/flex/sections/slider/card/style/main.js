@@ -4,6 +4,7 @@ import tw, { styled } from "twin.macro"
 const SSection = styled.section`
 ${ tw`
     mx-auto w-10/12 grid content-center items-center gap-10
+    xl:w-[960px]
 ` }
 
 section {
@@ -55,18 +56,17 @@ div.cards-slider {
             .card-container {
                 ${ tw`
                     w-[225px] mx-auto max-h-[400px]
-                    lg:w-[300px]
-                    lg2:w-[240px]
-                    xl:w-[320px]
+                    md:w-[300px]
+                    lg:w-[225px]
+                    
                 ` } 
 
                 .img-container {
 
                     ${ tw`
                         mx-auto w-[225px] h-[350px] relative z-20
-                        lg:w-[300px]
-                        lg2:w-[240px]
-                        xl:w-[320px]
+                        md:w-[300px]
+                        lg:w-[225px]
                     ` }
 
                     img {
