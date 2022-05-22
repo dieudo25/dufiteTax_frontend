@@ -7,6 +7,7 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
+import CookieConsent from 'react-cookie-consent';
 
 import Header from "../header/header"
 import Footer from "../footer/footer"
@@ -18,10 +19,29 @@ import "../../../style/layout.css"
 const Layout = ({ slug, children }) => (
     <SPageContainer id="page_layout" className={`page-${ slug }`}>
       <Header siteTitle={ slug || `Title`}/>
-      <main className={`snap snap-y snap-mandatory`} >
+      <main>
         {children}
       </main>
       <Footer/>
+      <CookieConsent
+        overlay={true}
+        location="bottom"
+        buttonText="Accept"
+        declineButtonText="Decline"
+        cookieName="gatsby-gdpr-google-analytics"
+        style={{ 
+          background: "#7C0000" 
+        }}
+        buttonStyle={{ 
+          color: "#7C0000",
+          fontSize: "13px", 
+          background: "#FFF"
+        }}
+        children="Le Site utilise des cookies pour distinguer les Utilisateurs du Site. 
+        Cela permet de fournir aux Utilisateurs une meilleure expérience de navigation 
+        et une amélioration du Site et de son contenu. Les objectifs et modalités 
+        des cookies sont contenus dans ce présent article."
+      />
     </SPageContainer>
 )
 
