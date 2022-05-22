@@ -17,7 +17,8 @@ const Footer = () => {
             facebook, 
             twitter, 
             instagram, 
-            linkedin 
+            linkedin,
+            privacy_policy,
         } 
     }  = useStaticQuery(
         graphql`
@@ -44,6 +45,10 @@ const Footer = () => {
                     twitter
                     instagram
                     linkedin
+                    privacy_policy {
+                        title
+                        slug
+                    }
                 }
             }
         `
@@ -83,6 +88,13 @@ const Footer = () => {
                         </a> 
                     }
                 </div>
+            </div>
+            <div className="policies-container">
+                { privacy_policy && 
+                    <Link to={`/${privacy_policy.slug}`}>
+                        { privacy_policy.title }
+                    </Link> 
+                }
             </div>
             <div className="bottom-footer-container">
                 <div className="footer-copyright">

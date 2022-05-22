@@ -66,6 +66,18 @@ const SFooter = styled.footer`
             }
         }
     }
+
+    .policies-container {
+        ${ tw`
+            text-center my-5
+        `}
+        a {
+            ${ tw`
+                no-underline text-main-500 text-sm
+                hover:underline
+            `}
+        }
+    }
     
     .bottom-footer-container {
         .footer-copyright {

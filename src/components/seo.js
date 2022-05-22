@@ -74,7 +74,8 @@ function Seo({ description, lang, meta, title }) {
           content: process.env.GOOGLE_SITE_VERIFICATION,
         }
       ].concat(meta)}
-    />
+    >
+    </Helmet>
   )
 }
 

@@ -36,7 +36,7 @@ const SHeader = styled.section`
 
 .middle-nav-container {
   ${ tw`
-  bg-main-500
+    bg-main-500
   ` }
 
   .block-container {

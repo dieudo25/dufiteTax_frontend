@@ -23,6 +23,10 @@ const Header = () => {
             text
             text_color
             text_color_hover
+            page {
+              title
+              slug
+            }
           }
           customer_zone {
             bg_color
@@ -73,13 +77,13 @@ const Header = () => {
       </div>
       <div className="middle-nav-container">
         <div className="block-container">
-          <div className="info-card">
+          <div className="info-card card-phone">
             <div className="icon-container">
               <MdPhone />
             </div>
             <span><a href={`tel:${ phone }`}>{ phone }</a></span>
           </div>
-          <div className="info-card">
+          <div className="info-card card-location">
             <div className="icon-container">
               <MdLocationOn />
             </div>
