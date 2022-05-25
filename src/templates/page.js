@@ -13,7 +13,7 @@ const PageTemplate = ({
     }}) => (
     <React.StrictMode>  
         <Seo 
-            title={ seo.title || title } 
+            title={ seo.title || title || "Dufite Tax Advisors" } 
             description={ seo.description || "No description" }
         />  
         <Page
