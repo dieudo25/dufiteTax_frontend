@@ -124,9 +124,7 @@ const SHeader = styled.section`
           transform: rotate(45deg) translate(-8px, -8px);
         }
       }
-    }
-    
-
+    } 
   } 
 }
 
