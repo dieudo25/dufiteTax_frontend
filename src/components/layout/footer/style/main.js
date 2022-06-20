@@ -9,7 +9,7 @@ const SFooter = styled.footer`
     .top-footer-container {
         ${ tw`
             mx-auto my-[50px] w-10/12 max-w-[960px] grid gap-10 justify-center justify-items-center items-center
-            md:my-[100px]
+            md:mt-[100px] md:mb-[0]
             lg:grid-cols-[340px 1fr 1fr]
 
         ` }
@@ -26,7 +26,7 @@ const SFooter = styled.footer`
                     .img-container {
                         ${ tw`
                             w-[200px] m-auto
-                            lg:m-0
+                            lg:m-0 m-0
                         ` }
                     }
                 }
@@ -64,6 +64,21 @@ const SFooter = styled.footer`
                     text-[32px] text-main-500
                 `}
             }
+        }
+    }
+
+    .footer-mentions {
+        ${ tw`
+            grid text-center text-sm 
+            md:grid-cols-[2fr 2fr 1fr] md:col-span-3 md:gap-10
+        ` }
+
+        p {
+            /* span {
+                ${ tw`
+                    inline-block
+                ` }
+            } */
         }
     }
 

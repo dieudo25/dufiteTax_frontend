@@ -88,6 +88,13 @@ const Footer = () => {
                         </a> 
                     }
                 </div>
+            <div className="footer-mentions">
+                <p>DUFITE TAX ADVISORS S.R.L. - I.T.A.A </p>
+                <p>AVENUE REINE ASTRID 168 BTE 19 
+                    <span> 1780 WEMMEL</span>
+                </p>
+                <p>BCE 0785.282.180</p>
+            </div>
             </div>
             <div className="policies-container">
                 { privacy_policy && 
