@@ -3,9 +3,24 @@ import { FaUser } from 'react-icons/fa';
 
 import SExternalButton from "./style/main";
 
-const ExternalButton = ({ button: { text, bg_color, bg_color_hover, border_color, border_color_hover, text_color, text_color_hover, link }, dataSal, dataSalDuration, icon}) => (
+const ExternalButton = ({ 
+    button: { 
+        text, 
+        bg_color, 
+        bg_color_hover, 
+        border_color, 
+        border_color_hover, 
+        text_color, 
+        text_color_hover, 
+        link 
+    }, 
+    dataSal, 
+    dataSalDuration, 
+    icon,
+    className
+}) => (
     <div 
-        className="btn-container"
+        className={ `${className} btn-container` } 
         data-sal={dataSal}
         data-sal-duration={dataSalDuration}
     >

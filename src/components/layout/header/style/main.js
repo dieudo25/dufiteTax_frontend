@@ -151,6 +151,12 @@ const SHeader = styled.section`
     }
   }
 
+  .customer-zone-btn {
+    ${ tw`
+      hidden
+    `}
+  }
+
   &.not-visible {
     ${ tw`
       max-lg:h-0 max-lg:p-0

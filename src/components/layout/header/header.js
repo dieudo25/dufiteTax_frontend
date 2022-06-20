@@ -104,7 +104,7 @@ const Header = () => {
       </div>
       <div className={`bottom-nav-container ${ isMenuActive ? 'is-visible' : 'not-visible' }`}>
         <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />
-        <ExternalButton button={ customer_zone } icon="FaUser"/>
+        <ExternalButton button={ customer_zone } icon="FaUser" className="customer-zone-btn"/>
       </div>
     </SHeader>
   )
