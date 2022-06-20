@@ -43,6 +43,7 @@
     "gatsby-transformer-sharp": "^4.3.0",
     "path-browserify": "^1.0.1",
     "react": "^17.0.1",
+    "react-accessible-accordion": "^5.0.0",
     "react-cookie-consent": "^7.4.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

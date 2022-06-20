@@ -11,6 +11,7 @@ import RichText2Image from './sections/richText2Image/richText2Image';
 import SliderImageCta from './sections/slider/ImageCta/sliderImageCta';
 import BgImageText from './sections/bgImageText/bgImageText';
 import ContactForm from './sections/contactForm/contactForm';
+import CustomAccordion from './sections/accordion/accordion';
 
 const DynamicZone = ({ sections }) => (
     <>
@@ -39,6 +40,8 @@ const DynamicZone = ({ sections }) => (
               return <BgImageText key={ `${component.strapi_component}_${component.id}` } data={component}/>
             case 'form.contact-form':
               return <ContactForm key={ `${component.strapi_component}_${component.id}` } data={component}/>
+            case 'page.accordion':
+              return <CustomAccordion key={ `${component.strapi_component}_${component.id}` } data={component}/>
             default:
               return <h2 key={Math.random()}>Default case - component not found</h2>
           }
