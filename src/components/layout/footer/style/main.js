@@ -69,41 +69,44 @@ const SFooter = styled.footer`
 
     .footer-mentions {
         ${ tw`
-            grid text-center text-sm 
-            md:grid-cols-[2fr 2fr 1fr] md:col-span-3 md:gap-10
+            mx-auto my-[50px] w-10/12 max-w-[960px] text-sm
+            lg:flex justify-between
         ` }
 
         p {
-            /* span {
+            ${ tw`
+                text-center mx-auto
+            ` }
+            span {
                 ${ tw`
                     inline-block
                 ` }
-            } */
-        }
-    }
+            }
 
-    .policies-container {
-        ${ tw`
-            text-center my-5
-        `}
-        a {
-            ${ tw`
-                no-underline text-main-500 text-sm
-                hover:underline
-            `}
+            &:nth-child(2) {
+                ${ tw`
+                w-[310px] m-auto
+                ` }
+            }
         }
     }
     
     .bottom-footer-container {
         .footer-copyright {
             ${ tw`
-                m-auto bg-main-500 text-white grid m-auto
+                m-auto bg-main-500  grid m-auto
             ` }
 
             p {
                 ${ tw`
-                    text-center
+                    text-center text-white
                 ` }
+
+                a {
+                    ${ tw`
+                        text-white
+                    ` }
+                }
             }
         }
     }

@@ -157,7 +157,7 @@ const SHeader = styled.section`
 
   &.not-visible {
     ${ tw`
-      max-lg:h-0 max-lg:p-0
+      max-lg:h-0 max-lg:p-0 overflow-hidden
     ` }
   }
 }

@@ -74,21 +74,53 @@ div.section-container {
         ` 
     }
 
-    div.accordion {
-        div.accordion__item {
-            div.accordion__button {
-                ${ tw`
-                    bg-main-500 text-white p-[5px 10px] border-b border-[2px] border-white border-solid
-                ` }
-            }
+    ${tw`
+        grid grid-cols-3 grid-rows-2 gap-5
+        xl:h-[700px]
+    `}
 
-            div.accordion__panel {
-                ${ tw`
-                    p-[5px 10px]
-                ` }
-            }
+    div.rich-text {
+        ${tw`
+            col-start-1 col-end-4 row-start-1 row-end-2 w-10/12 mx-auto z-20 bg-[rgba(255, 255, 255, 0.85)] px-[15px] relative top-10
+            sm:grid sm:m-auto sm:py-5
+            xl:w-[960px]
+        `}
+
+        transition-delay: 0s;
+
+        strong {
+            ${tw`
+                text-main-500
+            `}
         }
     }
+
+    div.multiple-img-1 {
+        ${tw`
+            col-start-[1] col-end-[4] row-start-2 row-end-3 z-10
+            3xl:hidden
+        `}
+
+        transition-delay: 0.5s;
+    }
+
+    div.multiple-img-2 {
+        ${tw`
+            col-start-[1] col-end-[4] row-start-1 row-end-3 z-0
+        `}
+        
+        transition-delay: 1.5s;
+        transform-origin: bottom;
+
+        img {
+            ${tw`
+                object-fill
+                xl:object-fill
+                3xl:object-cover
+            `}
+        }
+    }
+
 }
 `
 

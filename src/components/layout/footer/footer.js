@@ -45,10 +45,7 @@ const Footer = () => {
                     twitter
                     instagram
                     linkedin
-                    privacy_policy {
-                        title
-                        slug
-                    }
+
                 }
             }
         `
@@ -88,6 +85,7 @@ const Footer = () => {
                         </a> 
                     }
                 </div>
+            </div>
             <div className="footer-mentions">
                 <p>DUFITE TAX ADVISORS S.R.L. - I.T.A.A </p>
                 <p>AVENUE REINE ASTRID 168 BTE 19 
@@ -95,17 +93,9 @@ const Footer = () => {
                 </p>
                 <p>BCE 0785.282.180</p>
             </div>
-            </div>
-            <div className="policies-container">
-                { privacy_policy && 
-                    <Link to={`/${privacy_policy.slug}`}>
-                        { privacy_policy.title }
-                    </Link> 
-                }
-            </div>
             <div className="bottom-footer-container">
                 <div className="footer-copyright">
-                    <p>{ copyright }</p>
+                    <RichText text={ copyright } />
                 </div>
             </div>
         </SFooter>

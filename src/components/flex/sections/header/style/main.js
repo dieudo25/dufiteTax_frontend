@@ -18,7 +18,7 @@ ${ tw`
         ` }
         
         ${ ({ className }) => (className.includes("header-services") && tw`
-            sm:object-[0% 22%]
+            object-right
         `) }
 
         ${ ({ className }) => (className.includes("header-service-life-project") && tw`
@@ -27,6 +27,15 @@ ${ tw`
 
         ${ ({ className }) => (className.includes("header-service-every-day-life") && tw`
             sm:object-[0% 37%]
+        `) }
+
+        ${ ({ className }) => (className.includes("header-contact") && tw`
+            object-right
+            sm:object-top
+        `) }
+
+        ${ ({ className }) => (className.includes("header-about") && tw`
+            sm:object-top
         `) }
 
     }

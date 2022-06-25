@@ -39,9 +39,7 @@ const CustomAccordion = ({
                             </AccordionItemButton>
                         </AccordionItemHeading>
                         <AccordionItemPanel>
-                            <p>
-                                <RichText text={ item.text } />
-                            </p>
+                            <RichText text={ item.text } />
                         </AccordionItemPanel>
                     </AccordionItem>
                 )) }
