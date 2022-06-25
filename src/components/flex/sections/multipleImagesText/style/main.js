@@ -114,7 +114,7 @@ div.section-container {
             col-start-[1] col-end-[4] row-start-1 row-end-3 z-0
         `}
         
-        transition-delay: 2.5s;
+        transition-delay: 2s;
         transform-origin: bottom;
 
         img {
