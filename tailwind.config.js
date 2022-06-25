@@ -22,7 +22,7 @@ module.exports = {
         '2xl': '1440px',
         // => @media (min-width: 1280px) { ... }
 
-        '3xl': '1800px',
+        '3xl': '2000px',
         // => @media (min-width: 1280px) { ... }
 
         'max-xsm': {'max': '359px'},
