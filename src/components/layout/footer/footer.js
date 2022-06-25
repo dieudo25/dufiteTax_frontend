@@ -91,7 +91,7 @@ const Footer = () => {
                 <p>AVENUE REINE ASTRID 168 BTE 19 
                     <span> 1780 WEMMEL</span>
                 </p>
-                <p>BCE 0785.282.180</p>
+                <p>BCE 0785.282.108</p>
             </div>
             <div className="bottom-footer-container">
                 <div className="footer-copyright">
