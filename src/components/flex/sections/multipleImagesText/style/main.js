@@ -88,9 +88,9 @@ div.section-container {
 
         transition-delay: 0s;
 
-        strong {
+        strong, em {
             ${tw`
-                text-main-500
+                text-main-500 
             `}
         }
     }
@@ -101,7 +101,7 @@ div.section-container {
             3xl:hidden
         `}
 
-        transition-delay: 0.5s;
+        transition-delay: 1s;
     }
 
     div.multiple-img-2 {
@@ -109,7 +109,7 @@ div.section-container {
             col-start-[1] col-end-[4] row-start-1 row-end-3 z-0
         `}
         
-        transition-delay: 1.5s;
+        transition-delay: 2.5s;
         transform-origin: bottom;
 
         img {
