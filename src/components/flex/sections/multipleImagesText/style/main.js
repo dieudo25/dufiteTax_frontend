@@ -108,7 +108,7 @@ div.section-container {
             `}
         }
 
-        transition-delay: 1s;
+        transition-delay: 0.5s;
     }
 
     div.multiple-img-2 {
@@ -117,7 +117,7 @@ div.section-container {
             
         `}
         
-        transition-delay: 2.5s;
+        transition-delay: 2s;
         transform-origin: bottom;
 
         img {
