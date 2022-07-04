@@ -16,7 +16,7 @@ section {
 div.cards-slider {
     ${ tw`
         grid grid-cols-[30px 1fr 30px]
-        md:max-h-[80vh] md:gap-10
+        md:max-h-[80vh] gap-10
     ` }
 
     .slick-arrow{
@@ -56,7 +56,6 @@ div.cards-slider {
             .card-container {
                 ${ tw`
                     w-[225px] mx-auto max-h-[400px]
-                    md:w-[300px]
                     lg:w-[225px]
                     
                 ` } 
@@ -65,7 +64,6 @@ div.cards-slider {
 
                     ${ tw`
                         mx-auto w-[225px] h-[350px] relative z-20
-                        md:w-[300px]
                         lg:w-[225px]
                     ` }
 

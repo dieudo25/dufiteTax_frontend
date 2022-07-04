@@ -26,7 +26,7 @@ const SFooter = styled.footer`
                     .img-container {
                         ${ tw`
                             w-[200px] m-auto
-                            lg:m-0 m-0
+                            lg:m-0
                         ` }
                     }
                 }

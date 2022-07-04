@@ -46,26 +46,49 @@ const SHeader = styled.section`
       lg:grid-cols-[226px 226px 195px]
       xl:w-[960px] 
     ` }
-    .info-card {
+    a.card-link {
       ${ tw`
-        flex items-center m-auto w-[226px] gap-5
+        no-underline
       ` }
-      .icon-container {
+      .info-card {
         ${ tw`
-          w-[58px] h-[58px]
+          flex items-center m-auto w-[226px] gap-5
         ` }
-        svg {
+        .icon-container {
           ${ tw`
-            p-3 text-white text-[32px] border border-solid border-white rounded-full
+            w-[58px] h-[58px] rounded-full transition ease-in-out 
+          ` }
+          svg {
+            ${ tw`
+              p-3 text-white text-[32px] border border-solid border-white rounded-full transition ease-in-out 
+            ` }
+          }
+        }
+        span {
+          ${tw`
+            text-white
           ` }
         }
       }
-      span, a {
-        ${tw`
-          text-white no-underline
-        ` }
+
+      &:hover {
+        .info-card {
+          ${ tw`
+          ` }
+          .icon-container {
+            ${ tw`
+              bg-white transition ease-in-out 
+            ` }
+            svg {
+              ${ tw`
+                text-main-500 transition ease-in-out 
+              ` }
+            }
+          }
+        }
       }
     }
+    
 
     .btn-container {
       ${ tw`

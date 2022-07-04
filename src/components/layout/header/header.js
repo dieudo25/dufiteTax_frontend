@@ -77,18 +77,22 @@ const Header = () => {
       </div>
       <div className="middle-nav-container">
         <div className="block-container">
-          <div className="info-card card-phone">
-            <div className="icon-container">
-              <MdPhone />
+          <a className="card-link" href={`tel:${ phone }`}>
+            <div className="info-card card-phone">
+              <div className="icon-container">
+                <MdPhone />
+              </div>
+              <span>{ phone }</span>
             </div>
-            <span><a href={`tel:${ phone }`}>{ phone }</a></span>
-          </div>
-          <div className="info-card card-location">
-            <div className="icon-container">
-              <MdLocationOn />
+          </a>
+          <a className="card-link" href={`https://www.google.com/maps/search/?api=1&query=${encodeURI(location)}`}>
+            <div className="info-card card-location">
+              <div className="icon-container">
+                <MdLocationOn />
+              </div>
+              <span>{ location }</span>
             </div>
-            <span>{ location }</span>
-          </div>
+          </a>
           <Button button={ contact_us } />
         </div>
       </div>

@@ -87,7 +87,9 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-mentions">
-                <p>DUFITE TAX ADVISORS S.R.L. - I.T.A.A </p>
+                <p>DUFITE TAX ADVISORS S.R.L.
+                    <span>I.T.A.A - 52.390.508</span>
+                </p>
                 <p>AVENUE REINE ASTRID 168 BTE 19 
                     <span> 1780 WEMMEL</span>
                 </p>

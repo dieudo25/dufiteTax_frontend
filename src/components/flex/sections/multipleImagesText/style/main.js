@@ -76,7 +76,8 @@ div.section-container {
 
     ${tw`
         grid grid-cols-3 grid-rows-2 gap-5
-        xl:h-[900px]
+        lg:h-[500px]
+        xl:h-[550px]
     `}
 
     div.rich-text {
@@ -90,19 +91,20 @@ div.section-container {
 
         strong, em {
             ${tw`
-                text-main-500 
+                text-main-500 font-bold
             `}
         }
     }
 
     div.multiple-img-1 {
         ${tw`
-            col-start-[1] col-end-[4] row-start-2 row-end-3 z-10 relative h-[500px] top-[-60px]
+            col-start-[1] col-end-[4] row-start-2 row-end-3 z-10 
+            xl:w-[960px] xl:h-[305px] xl:relative xl:bottom-[40px] xl:m-auto
         `}
 
         img {
             ${tw`
-                3xl:object-cover 3xl:object-[0% 33%]
+                lg:object-cover lg:object-top
             `}
         }
 
@@ -112,6 +114,7 @@ div.section-container {
     div.multiple-img-2 {
         ${tw`
             col-start-[1] col-end-[4] row-start-1 row-end-3 z-0
+            
         `}
         
         transition-delay: 2.5s;
@@ -119,7 +122,7 @@ div.section-container {
 
         img {
             ${tw`
-                object-fill
+                object-cover
             `}
 
             filter: blur(4px);
