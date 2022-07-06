@@ -5,6 +5,7 @@ ${ tw`
     relative h-[400px]
     sm:h-[300px]
     md:h-[400px]
+    xxl:h-[500px]
 ` }
 
 .img-container {
@@ -18,7 +19,7 @@ ${ tw`
         ` }
         
         ${ ({ className }) => (className.includes("header-services") && tw`
-            object-right
+            object-right 
         `) }
 
         ${ ({ className }) => (className.includes("header-service-life-project") && tw`
@@ -35,7 +36,7 @@ ${ tw`
         `) }
 
         ${ ({ className }) => (className.includes("header-about") && tw`
-            sm:object-top
+            sm:object-top 3xl:object-[0 6%]
         `) }
 
     }
