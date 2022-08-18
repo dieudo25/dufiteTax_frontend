@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.dufitetax.be`,
+    siteUrl: `https://www.dufitetaxadvisors.be`,
     title: 'DufiteTax',
   },
   plugins: [
@@ -15,6 +15,11 @@ module.exports = {
     `gatsby-plugin-emotion`,
     {
       resolve: "gatsby-plugin-sitemap",
+      options: {
+        excludes: [
+          '/politique-de-confidentialite',
+        ]
+      },
     },
     {
       resolve: "gatsby-plugin-manifest",

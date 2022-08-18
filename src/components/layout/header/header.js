@@ -97,7 +97,7 @@ const Header = () => {
         </div>
       </div>
       <div className="menu-button-container">
-        <div className="btn-container" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) }>
+        <div className="btn-container" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) } role="navigation">
           <div className="btn-text">Menu</div>
           <div className="btn-icon">
             <div className={ `bar1 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />

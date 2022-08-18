@@ -41,6 +41,12 @@ main {
     ` }
   }
 }
+
+.gdpr-link {
+  ${ tw`
+    text-white ml-1
+  `}
+}
 `
 
 export default SPageContainer;

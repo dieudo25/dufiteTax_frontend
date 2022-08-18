@@ -18,7 +18,6 @@ const Footer = () => {
             twitter, 
             instagram, 
             linkedin,
-            privacy_policy,
         } 
     }  = useStaticQuery(
         graphql`

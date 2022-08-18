@@ -8,6 +8,8 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import CookieConsent from 'react-cookie-consent';
+import { Link } from "gatsby";
+
 
 import Header from "../header/header"
 import Footer from "../footer/footer"
@@ -37,11 +39,15 @@ const Layout = ({ slug, children }) => (
           fontSize: "13px", 
           background: "#FFF"
         }}
-        children="Le Site utilise des cookies pour distinguer les Utilisateurs du Site. 
+      >
+        Le Site utilise des cookies pour distinguer les Utilisateurs du Site. 
         Cela permet de fournir aux Utilisateurs une meilleure expérience de navigation 
-        et une amélioration du Site et de son contenu. Les objectifs et modalités 
-        des cookies sont contenus dans ce présent article."
-      />
+        et une amélioration du Site et de son contenu. 
+        <Link to="/politique-de-confidentialite" className="gdpr-link"> 
+          Les objectifs et modalités 
+          des cookies sont contenus dans ce présent article
+        </Link>.
+      </CookieConsent>
     </SPageContainer>
 )
 
