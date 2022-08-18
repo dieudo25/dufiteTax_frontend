@@ -5,3 +5,4 @@ public
 .env.production
 script/deploy.sh
 .vscode/
+BingSiteAuth.xml
