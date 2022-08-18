@@ -15,6 +15,7 @@ const PageTemplate = ({
         <Seo 
             title={ seo.title || title || "Dufite Tax Advisors" } 
             description={ seo.description || "No description" }
+            keywords={ seo.keywords || "No keywords"}
         />  
         <Page
             id={ id }

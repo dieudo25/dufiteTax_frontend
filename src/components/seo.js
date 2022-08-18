@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 
 import capitalizeFirstChar from "../utils/string"
 
-function Seo({ title, description, lang, meta }) {
+function Seo({ title, description, lang, meta, keywords }) {
 
   return (
     <Helmet
@@ -24,6 +24,10 @@ function Seo({ title, description, lang, meta }) {
         {
           name: `description`,
           content: description,
+        },
+        {
+          name: `keywords`,
+          content: keywords,
         },
         {
           property: `og:title`,
