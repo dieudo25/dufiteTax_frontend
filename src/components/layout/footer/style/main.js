@@ -75,12 +75,18 @@ const SFooter = styled.footer`
 
         p {
             ${ tw`
-                text-center mx-auto
+                text-center mx-auto uppercase
             ` }
             span {
                 ${ tw`
                     inline-block
                 ` }
+
+                &.post-code {
+                    ${ tw`
+                        ml-1
+                    ` }
+                }
             }
 
             &:nth-child(2) {
