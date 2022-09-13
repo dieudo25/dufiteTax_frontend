@@ -88,8 +88,8 @@ const Footer = () => {
             <div className="footer-mentions">
                 <p>DUFITE TAX ADVISORS S.R.L. - I.T.A.A 52.390.508
                 </p>
-                <p>Rue Joseph Stevens 7, 
-                    <span className="post-code">1000 Bruxelles</span>
+                <p>AVENUE REINE ASTRID 168 BTE 19, 
+                    <span className="post-code">1780 WEMMEL</span>
                 </p>
                 <p>BCE 0785.282.108</p>
             </div>
