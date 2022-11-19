@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+
 import getCurrentDate from "../../../../utils/date";
+import { EmailContext } from "./Context";
 
 export const CallForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const [isSent, setIsSent] = useContext(EmailContext);
 
   const onSubmit = (values) => {
     console.log("values", values);
@@ -22,6 +26,7 @@ export const CallForm = () => {
         message: values.message,
     }).then(function (response) {
         console.log(response);
+        console.log("success", isSent);
     }).catch(function (error) {
         console.log(error);
     });
@@ -33,7 +38,7 @@ export const CallForm = () => {
             id="subject" 
             value="call" 
             type="hidden" 
-            {...register("subject")} 
+            {...register("subject")}
         />
         <div className="form-field-container">
             <label htmlFor="company_name">Nom et prénom</label>
@@ -156,7 +161,7 @@ export const CallForm = () => {
             </div>
         </div>
         <div className="form-field-container submit-container">
-            <input className="submit-form" type="submit" value="Envoyer"/>
+            <input className="submit-form" type="submit" value="Envoyer" onClick={() => setIsSent(true)}/>
         </div>
     </form>
   );

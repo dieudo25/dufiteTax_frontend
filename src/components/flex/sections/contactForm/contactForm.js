@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, createContext } from "react";
+import Slider from "react-slick";
+import { BsCheckCircle } from "react-icons/bs"
+
 import CompanyForm from "./CompanyForm";
 import IdeaForm from "./IdeaForm";
 import CallForm from "./callForm";
 import SSection from "./style/main";
-import Slider from "react-slick";
+import { EmailContext } from "./Context";
 
 const ContactForm = ({
     data: { 
@@ -13,6 +16,8 @@ const ContactForm = ({
         style
     } 
 }) => {
+    const [isSent, setIsSent] = useState(false);
+
     const switchSubject = (i) => {
         switch(i) {
             case 0:
@@ -42,25 +47,45 @@ const ContactForm = ({
         },
     };
 
-    return (
-        <SSection
-            id={ style.css_id }
-            className={ `component ${strapi_component} ${ style.css_classes }` }
-            section={ section }
-            container={ container }
-        >
-            <div className="section-container">
-                <h2 className="contact-form-title">Je souhaite contacter Dufite Tax Advisors pour</h2>
-                <div className="contact-form-slider">
-                    <Slider {...settings}>
-                        <CompanyForm />
-                        <IdeaForm />
-                        <CallForm />
-                    </Slider>
-                </div>
-            </div>
-        </SSection>
-        )
+    if (!isSent) {
+        return (
+            <SSection
+                id={ style.css_id }
+                className={ `component ${strapi_component} ${ style.css_classes }` }
+                section={ section }
+                container={ container }
+            >
+                    <div className="section-container">
+                        <h2 className="contact-form-title">Je souhaite contacter Dufite Tax Advisors pour</h2>
+                        <div className="contact-form-slider">
+                        <EmailContext.Provider value={[isSent, setIsSent]}>
+                            <Slider {...settings}>   
+                                <CompanyForm />
+                                <IdeaForm />
+                                <CallForm />
+                            </Slider>
+                            </EmailContext.Provider>
+                        </div>
+                    </div>
+            </SSection>
+            )
+        }
+        else {
+            return (
+                <SSection
+                    id={ style.css_id }
+                    className={ `component ${strapi_component} ${ style.css_classes }` }
+                    section={ section }
+                    container={ container }
+                >
+                        <div className="section-container">
+                            <h2 className="contact-form-title success">
+                                <span><BsCheckCircle /></span>
+                                L'e-mail a été envoyé avec succès, nous vous contacterons dès que possible.</h2>
+                        </div>
+                </SSection>
+            )
+        }
     }
 
 export default ContactForm;

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
+import { EmailContext } from "./Context";
+
 export const IdeaForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const [isSent, setIsSent] = useContext(EmailContext);
 
   const onSubmit = (values) => {
     console.log(values);
@@ -21,6 +25,7 @@ export const IdeaForm = () => {
         phone_num: values.phone_num,
     }).then(function (response) {
         console.log(response);
+        console.log("success", isSent);
     }).catch(function (error) {
         console.log(error);
     });
@@ -165,7 +170,7 @@ export const IdeaForm = () => {
             </div>
         </div>
         <div className="form-field-container submit-container">
-            <input className="submit-form" type="submit" value="Envoyer"/>
+            <input className="submit-form" type="submit" value="Envoyer" onClick={() => setIsSent(true)}/>
         </div>
     </form>
   );
