@@ -83,6 +83,20 @@ const SSection = styled.section`
                 text-center text-white pt-[50px] m-0
                 pt-[100px] 
             ` }
+
+            &.success {
+                ${ tw`
+                    h-[20vh] grid justify-items-center items-center p-10
+                ` }
+
+                span {
+                    svg {
+                        ${ tw`
+                            w-[100px] h-full
+                        ` }
+                    }
+                }
+            }
         }
 
         .contact-form-slider {
