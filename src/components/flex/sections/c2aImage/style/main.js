@@ -291,14 +291,14 @@ const SSection = styled.section`
 
             ${tw`
                 gap-0
-                sm:gap-8
+                sm:gap-8 
+                lg:grid-cols-3
             `}
 
             div.c2a {
-
                 ${tw`
                     mt-[50px]
-                    sm:mt-0 sm:my-[100px] 
+                    sm:mt-0 sm:my-[100px] sm:row-span-2
                 `}
             }
 
@@ -308,6 +308,34 @@ const SSection = styled.section`
                         object-contain
                         lg:object-contain
                     `}
+                }
+            }
+            div.badge-pro-container {
+                ${ tw`
+                    
+                `}
+                a.badge-pro {
+                    ${ tw`
+                        no-underline block relative w-[216px] h-[172px] mx-auto mb-10
+                    `}
+                    img {
+                        w-full h-full
+                    }
+                    div {
+                        &.text-pro {
+                            ${tw`
+                                absolute left-0 right-0 z-20 text-[#fff] font-bold text-center top-[60px]                       
+                            `
+                            }
+                        }
+    
+                        &.text-year {
+                            ${tw`
+                                absolute left-0 right-0 z-20 text-[#fff] font-bold text-center text-[38px] top-[80px]                            
+                            `
+                            }
+                        }
+                    }
                 }
             }
         }

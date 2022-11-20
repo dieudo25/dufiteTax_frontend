@@ -40,7 +40,7 @@ const C2AImage = ({
             />
         }
 
-        <div className="section-container">
+        <div className={ `section-container ` }>
             <div className="c2a">
                 <RichText text={ text }/>
                 { button && <Button button={ button }/> }
@@ -56,6 +56,42 @@ const C2AImage = ({
                 image
                 }
             />
+
+            { style && style.css_classes == "about-us-cta" &&
+                <div className="badge-pro-container">
+                    <a 
+                        className="badge-pro"
+                        href="https://www.starofservice.be/professionnel/comptabilite/wemmel/30734728/dufite-tax-advisors" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        alt="StarOfService" 
+                    >
+                        <img 
+                            src="https://cdn-aurora.starofservice.com/static/media/icon.9fe15798.svg" 
+                        />
+                        <div
+                            className="text-pro" 
+                            style={{
+                                fontFamily: "Helvetica,Sans-Serif",
+
+                            }}
+                        >
+                            TOP PRO
+                        </div>
+                        <div 
+                            className="text-year" 
+                            style={{
+                                fontFamily: "Helvetica,Sans-Serif",
+                            }}
+                        >
+                            2022
+                        </div>
+                    </a>    
+                </div>
+                
+            }
+              
+            
         </div>
 
         { anchor_down && 
