@@ -47,46 +47,34 @@ const ContactForm = ({
         },
     };
 
-    if (!isSent) {
-        return (
-            <SSection
-                id={ style.css_id }
-                className={ `component ${strapi_component} ${ style.css_classes }` }
-                section={ section }
-                container={ container }
-            >
-                    <div className="section-container">
-                        <h2 className="contact-form-title">Je souhaite contacter Dufite Tax Advisors pour</h2>
-                        <div className="contact-form-slider">
-                        <EmailContext.Provider value={[isSent, setIsSent]}>
-                            <Slider {...settings}>   
-                                <CompanyForm />
-                                <IdeaForm />
-                                <CallForm />
-                            </Slider>
-                            </EmailContext.Provider>
-                        </div>
+    return (
+        <SSection
+            id={ style.css_id }
+            className={ `component ${strapi_component} ${ style.css_classes }`}
+            section={ section }
+            container={ container }
+        >
+                <div className={ `section-container ${isSent ? "hide" : "" }` }>
+                    <h2 className="contact-form-title">Je souhaite contacter Dufite Tax Advisors pour</h2>
+                    <div className="contact-form-slider">
+                    <EmailContext.Provider value={[isSent, setIsSent]}>
+                        <Slider {...settings}>   
+                            <CompanyForm />
+                            <IdeaForm />
+                            <CallForm />
+                        </Slider>
+                        </EmailContext.Provider>
                     </div>
-            </SSection>
-            )
-        }
-        else {
-            return (
-                <SSection
-                    id={ style.css_id }
-                    className={ `component ${strapi_component} ${ style.css_classes }` }
-                    section={ section }
-                    container={ container }
-                >
-                        <div className="section-container">
-                            <h2 className="contact-form-title success">
-                                <span><BsCheckCircle /></span>
-                                L'e-mail a été envoyé avec succès, nous vous contacterons dès que possible.</h2>
-                        </div>
-                </SSection>
-            )
-        }
-    }
+                </div>
+                <div className={ `section-container ${!isSent ? "hide" : "" }` }>
+                    <h2 className="contact-form-title success">
+                        <span><BsCheckCircle /></span>
+                        L'e-mail a été envoyé avec succès, nous vous contacterons dès que possible.
+                    </h2>
+                </div>
+        </SSection>
+    )
+}
 
 export default ContactForm;
 
