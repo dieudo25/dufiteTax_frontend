@@ -89,7 +89,7 @@ const SFooter = styled.footer`
                 }
             }
 
-            &:nth-child(2) {
+            &:nth-of-type(2) {
                 ${ tw`
                 w-[310px] m-auto
                 ` }

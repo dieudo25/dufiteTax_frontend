@@ -78,6 +78,12 @@ const SSection = styled.section`
             ` 
         }
 
+        &.hide {
+            ${ tw`
+                hidden
+            ` }  
+        }
+
         .contact-form-title {
             ${ tw`
                 text-center text-white pt-[50px] m-0
