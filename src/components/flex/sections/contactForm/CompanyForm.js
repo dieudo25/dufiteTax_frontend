@@ -165,7 +165,7 @@ export const CompanyForm = () => {
             </div>
         </div>
         <div className="form-field-container submit-container">
-            <input className="submit-form" type="submit" value="Envoyer" onClick={() => setIsSent(true)}/>
+            <input className="submit-form" type="button" value="Envoyer" onClick={() => setIsSent(true)}/>
         </div>
     </form>
   );
