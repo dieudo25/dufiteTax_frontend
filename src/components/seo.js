@@ -63,14 +63,6 @@ function Seo({ title, description, lang, meta, keywords }) {
         }
       ].concat(meta)}
     >      
-      {/* <!-- Google tag (gtag.js) --> */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWHZ8QTV1C"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)};
-        gtag('js', new Date());
-        gtag('config', 'G-EWHZ8QTV1C');
-      </script>
     </Helmet>
   )
 }
