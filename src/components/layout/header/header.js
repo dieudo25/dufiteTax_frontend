@@ -97,14 +97,20 @@ const Header = () => {
         </div>
       </div>
       <div className="menu-button-container">
-        <div className="btn-container" aria-label="toggle-nav-menu" onClick={ () => setIsMenuActive(!isMenuActive) } role="navigation">
+        <button 
+          className="btn-container" 
+          aria-label="toggle-nav-menu" 
+          onClick={ () => setIsMenuActive(!isMenuActive) } 
+          onKeyDown={ () => setIsMenuActive(!isMenuActive) }
+          role="navigation"
+        >
           <div className="btn-text">Menu</div>
           <div className="btn-icon">
             <div className={ `bar1 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />
             <div className={ `bar2 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />
             <div className={ `bar3 ${ isMenuActive ? 'is-visible' : 'not-visible' }` } />
           </div>
-        </div>
+        </button>
       </div>
       <div className={`bottom-nav-container ${ isMenuActive ? 'is-visible' : 'not-visible' }`}>
         <MenuList menu={ menu } isMenuActive={ isMenuActive } className="header-nav" />

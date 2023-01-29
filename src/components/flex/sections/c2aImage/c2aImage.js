@@ -57,7 +57,7 @@ const C2AImage = ({
                 }
             />
 
-            { style && style.css_classes == "about-us-cta" &&
+            { style && style.css_classes === "about-us-cta" &&
                 <div className="badge-pro-container">
                     <a 
                         className="badge-pro"
@@ -68,6 +68,7 @@ const C2AImage = ({
                     >
                         <img 
                             src="https://cdn-aurora.starofservice.com/static/media/icon.9fe15798.svg" 
+                            alt="Start of service"
                         />
                         <div
                             className="text-pro" 

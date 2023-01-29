@@ -24,7 +24,12 @@ const SHeader = styled.section`
         lg:text-[21px]
         xl:text-[2rem]
       ` }
-
+      a {
+        ${ tw`
+          no-underline text-black transition
+          hover:text-main-500 hover:font-bold transition
+          `}
+      }
       strong {
         ${ tw`
           text-main-500
@@ -106,7 +111,7 @@ const SHeader = styled.section`
 
   .btn-container {
     ${ tw`
-      inline-block cursor-pointer flex gap-2
+      inline-block cursor-pointer flex items-center gap-2 border-0 bg-white 
     ` }
 
     .btn-text {
