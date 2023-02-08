@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-
 import { EmailContext } from "./Context";
 
 export const CompanyForm = () => {
@@ -24,10 +23,9 @@ export const CompanyForm = () => {
         nb_transaction: values.nb_transaction,
         phone_num: values.phone_num,
     }).then(function (response) {
-        console.log(response);
-        console.log("success", isSent);
+        setIsSent(true);
     }).catch(function (error) {
-        console.log(error);
+        console.alert("Error while sending the e-mail")
     });
   };
 
@@ -46,10 +44,11 @@ export const CompanyForm = () => {
                 name="company_name" 
                 type="text" 
                 {...register("company_name", {
-                    required: "Veuillez remplir ce champ."
+                    required: true,
+                    message: ""
                 })} 
             />
-            <p>{errors.company_name && errors.company_name.message}</p>
+            {errors.company_name && <p>Veuillez remplir ce champ.</p>}
         </div>
         <div className="form-field-container">
             <label htmlFor="company_num">Numéro d'entreprise</label>
@@ -165,7 +164,7 @@ export const CompanyForm = () => {
             </div>
         </div>
         <div className="form-field-container submit-container">
-            <input className="submit-form" type="submit" value="Envoyer" onClick={() => setIsSent(true)}/>
+            <input className="submit-form" type="submit" value="Envoyer"/>
         </div>
     </form>
   );

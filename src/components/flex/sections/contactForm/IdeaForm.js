@@ -24,10 +24,9 @@ export const IdeaForm = () => {
         revenue: values.revenue,
         phone_num: values.phone_num,
     }).then(function (response) {
-        console.log(response);
-        console.log("success", isSent);
+        setIsSent(true);
     }).catch(function (error) {
-        console.log(error);
+        console.alert("Error while sending the e-mail")
     });
   };
 
@@ -170,7 +169,7 @@ export const IdeaForm = () => {
             </div>
         </div>
         <div className="form-field-container submit-container">
-            <input className="submit-form" type="submit" value="Envoyer" onClick={() => setIsSent(true)}/>
+            <input className="submit-form" type="submit" value="Envoyer"/>
         </div>
     </form>
   );

@@ -25,10 +25,9 @@ export const CallForm = () => {
         decla_tva: values.decla_tva,
         message: values.message,
     }).then(function (response) {
-        console.log(response);
-        console.log("success", isSent);
+        setIsSent(true);
     }).catch(function (error) {
-        console.log(error);
+        console.alert("Error while sending the e-mail")
     });
   };
 
@@ -161,7 +160,7 @@ export const CallForm = () => {
             </div>
         </div>
         <div className="form-field-container submit-container">
-            <input className="submit-form" type="submit" value="Envoyer" onClick={() => setIsSent(true)}/>
+            <input className="submit-form" type="submit" value="Envoyer"/>
         </div>
     </form>
   );
